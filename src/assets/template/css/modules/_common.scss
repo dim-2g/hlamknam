@@ -1496,4 +1496,11 @@ a{
   }
 }
 
-
+.xtab-initialized{
+  .xtab{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}

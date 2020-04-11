@@ -26,8 +26,9 @@ $(function() {
         var xtab = parent.find('.xtab');
         xtab.stop(true, true);
         parent.find('[data-tab]').removeClass('active');
-        $(this).addClass('active');
+        //$(this).addClass('active');
         var data_tab = $(this).attr('data-tab');
+        $('[data-tab="'+data_tab+'"]').addClass('active');
         xtab.animate({"opacity": 0.2}, 300, function() {
             xtab.removeClass('active');
             xtab.animate({"opacity": 1});
@@ -44,7 +45,7 @@ $(function() {
     //инициализация слайдера Виды узлов
     //initNodesSlider();
     //инициализация всех табов
-    //initXtab();
+    initXtab();
 
     //показ всех товаров в каталоге при клике на "Показать еще"
     $('body').on('click', '.more-js', function(e) {
@@ -76,6 +77,14 @@ $(function() {
     });
 
     $('select.styler').styler();
+
+    $('body').on('click', '[data-step-index]', function(e) {
+        e.preventDefault();
+        $('[data-step-index]').removeClass('active');
+        $(this).addClass('active');
+        var index = $(this).attr('data-step-index');
+        console.log(index);
+    });
 
 });
 

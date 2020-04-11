@@ -1795,6 +1795,11 @@ a {
       width: 14px;
       height: 8px; }
 
+.xtab-initialized .xtab {
+  display: none; }
+  .xtab-initialized .xtab.active {
+    display: block; }
+
 .bp-larger-than {
   position: fixed;
   bottom: 0;
@@ -1851,7 +1856,7 @@ a {
         opacity: 1; } }
 
 .breadcrumbs {
-  padding: 12px 0; }
+  padding: 12px 0 19px; }
   .breadcrumbs ul {
     margin: 0;
     padding: 0;
@@ -1865,12 +1870,13 @@ a {
       line-height: 16px;
       color: #777777; }
       .breadcrumbs ul li + li:before {
-        margin: 0 5px;
+        margin: 0 7px;
         content: "\2014";
         vertical-align: top;
         display: inline-block;
         background-repeat: no-repeat;
-        color: #777777; }
+        color: #777777;
+        font-size: 22px; }
     .breadcrumbs ul a {
       font-weight: 300;
       font-size: 14px;
@@ -1880,14 +1886,38 @@ a {
       .breadcrumbs ul a:hover {
         text-decoration: underline; }
 
+.steps {
+  padding: 0 0 32px; }
+
 .steps-line {
-  display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative;
+  margin-top: 39px;
+  margin-bottom: 40px;
+  display: none; }
+  @media (min-width: 750px) {
+    .steps-line {
+      display: flex; } }
+  .steps-line:before {
+    display: inline-block;
+    content: "";
+    left: 75px;
+    right: 75px;
+    top: 19px;
+    position: absolute;
+    height: 1px;
+    background-color: #EF5C2E;
+    z-index: 1; }
   .steps-line__item {
     width: 160px;
     text-align: center;
     position: relative;
-    padding-top: 40px; }
+    padding-top: 48px;
+    color: #2C2C2C;
+    text-decoration: none; }
+    .steps-line__item:hover {
+      color: #2C2C2C;
+      text-decoration: none; }
     .steps-line__item:before {
       width: 38px;
       height: 38px;
@@ -1898,4 +1928,198 @@ a {
       content: "";
       top: 0px;
       left: 50%;
-      transform: translateX(-50%); }
+      transform: translateX(-50%);
+      z-index: 2; }
+    .steps-line__item.active:before {
+      background-color: #EF5C2E; }
+  .steps-line__name {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center; }
+
+.steps-info {
+  border: 1px solid #EF5C2E;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0; }
+  @media (min-width: 550px) {
+    .steps-info {
+      padding: 20px 0 0; } }
+  @media (min-width: 1000px) {
+    .steps-info {
+      padding: 0;
+      flex-direction: row; } }
+  .steps-info__image {
+    line-height: 1;
+    font-size: 0px; }
+    @media (min-width: 550px) {
+      .steps-info__image {
+        flex-shrink: 0;
+        width: 463px; } }
+    .steps-info__image img {
+      max-width: 100%; }
+  .steps-info__body {
+    width: 100%;
+    padding: 13px 18px 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    @media (min-width: 550px) {
+      .steps-info__body {
+        align-items: center;
+        padding: 20px; } }
+  .steps-info__header {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 14px; }
+    @media (min-width: 550px) {
+      .steps-info__header {
+        text-align: center;
+        margin-bottom: 28px; } }
+  .steps-info__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: justify; }
+
+.steps-tabs {
+  border-top: 1px solid #EF5C2E; }
+  @media (min-width: 750px) {
+    .steps-tabs {
+      border: 0 none; } }
+
+.steps-tab-header {
+  display: flex;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  text-decoration: none;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #EF5C2E;
+  border-top: 0 none;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 5px 17px; }
+  @media (min-width: 750px) {
+    .steps-tab-header {
+      display: none; } }
+  .steps-tab-header:hover {
+    color: #000000;
+    text-decoration: none; }
+  .steps-tab-header.active {
+    background-color: #EF5C2E;
+    color: #fff; }
+    .steps-tab-header.active:hover {
+      color: #fff; }
+
+.discount {
+  background: url("/assets/template/images/bg-discount.png") center center no-repeat;
+  padding: 21px 0; }
+  .discount__box {
+    display: flex;
+    padding: 24px 12px 12px;
+    background: rgba(255, 255, 255, 0.85);
+    max-width: 754px; }
+    @media (min-width: 750px) {
+      .discount__box {
+        padding: 48px 75px 54px; } }
+  .discount__caption {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    color: #222222;
+    max-width: 320px;
+    width: 100%;
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 14px; }
+    @media (min-width: 374px) {
+      .discount__caption {
+        font-size: 24px; } }
+    @media (min-width: 750px) {
+      .discount__caption {
+        margin-bottom: 0; } }
+    .discount__caption:before {
+      display: inline-block;
+      content: "";
+      width: 1px;
+      height: 100%;
+      background-color: #EF5C2E;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0; }
+  .discount__panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; }
+    @media (min-width: 750px) {
+      .discount__panel {
+        flex-direction: row; } }
+    .discount__panel .btn {
+      width: 214px;
+      height: 46px; }
+
+.offer {
+  padding: 24px 0; }
+
+.price {
+  background: #F2F2F2;
+  padding: 25px 0 36px; }
+
+.price-table__captions {
+  width: 242px;
+  flex-shrink: 0; }
+
+.price-table__columns {
+  width: 100%; }
+  .price-table__columns .price-table__cell {
+    margin-left: -1px; }
+
+.price-table__column {
+  width: 300px;
+  flex-shrink: 0;
+  margin-left: -1px; }
+
+.price-table__th {
+  height: 242px;
+  border: 1px solid #C4C4C4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  flex-direction: column;
+  background-color: #fff; }
+
+.price-table__cell {
+  background-color: #fff;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  border: 1px solid #C4C4C4;
+  position: relative;
+  margin-top: -1px;
+  padding: 15px;
+  width: 100%; }
+
+.dinamic-price {
+  display: flex; }
+
+.static-price {
+  display: flex; }
