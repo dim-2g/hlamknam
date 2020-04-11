@@ -190,28 +190,27 @@
 .jq-selectbox {
 	vertical-align: middle;
 	cursor: pointer;
+	width: 100%;
 }
 .jq-selectbox__select {
-	height: 32px;
-	padding: 0 45px 0 10px;
-	border: 1px solid #CCC;
-	border-bottom-color: #B3B3B3;
-	border-radius: 4px;
-	background: linear-gradient(#FFF, #E6E6E6);
-	box-shadow: inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,.1);
+	height: 45px;
+	padding: 0 45px 0 20px;
+	border: 1px solid #C4C4C4;
+	background: #fff;
+	//box-shadow: inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,.1);
 	font: 14px/32px Arial, sans-serif;
 	color: #333;
-	text-shadow: 1px 1px #FFF;
+
 }
 .jq-selectbox__select:hover {
-	background: linear-gradient(#F6F6F6, #E6E6E6);
+	/*background: linear-gradient(#F6F6F6, #E6E6E6);*/
 }
 .jq-selectbox__select:active {
 	background: #F5F5F5;
 	box-shadow: inset 1px 1px 3px #DDD;
 }
 .jq-selectbox.focused .jq-selectbox__select {
-	border: 1px solid #5794BF;
+	/*border: 1px solid #5794BF;*/
 }
 .jq-selectbox.disabled .jq-selectbox__select {
 	border-color: #CCC;
@@ -222,6 +221,8 @@
 .jq-selectbox__select-text {
 	display: block;
 	width: 100%;
+	height: 45px;
+	line-height: 44px;
 }
 .jq-selectbox .placeholder {
 	color: #888;
@@ -232,7 +233,6 @@
 	right: 0;
 	width: 34px;
 	height: 100%;
-	border-left: 1px solid #CCC;
 }
 .jq-selectbox__trigger-arrow {
 	position: absolute;
@@ -329,7 +329,7 @@
 	cursor: default;
 }
 .jq-select-multiple.focused {
-	border: 1px solid #5794BF;
+	/*border: 1px solid #5794BF;*/
 }
 .jq-select-multiple.disabled {
 	border-color: #CCC;

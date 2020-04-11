@@ -1,24 +1,5 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Главная страница</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet"-->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-    <!-- @if NODE_ENV='development' -->
-    <link rel="stylesheet" href="/assets/template/vendor/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="/assets/template/vendor/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="/assets/template/css/main.css">
-    <!-- @endif -->
-
-    <!-- @if NODE_ENV='production' -->
-    <link rel="stylesheet" href="assets/template/css/main.min.css">
-    <!-- @endif -->
-</head>
-<body>
     //= include/header.html
+    //= include/main-slider.html
 
     <div class="services">
         <div class="container">
@@ -321,387 +302,96 @@
         </div>
     </div>
 
-    <div class="why">
-        <div class="container">
-            <div class="why__box">
-                <div class="section-header">
-                    Почему клиенты выбирают нас
+    //= include/why.html
+    //= include/actions.html
+
+    <div class="about">
+        <div class="container tablet-container">
+            <div class="about__grid">
+                <div class="about-digits">
+                    <div class="tablet-container__inside">
+                        <div class="section-header">О нас</div>
+                        <div class="about-digits__group">
+                            <div class="about-digits__item">
+                                <div class="about-digits__value">21 425+</div>
+                                <div class="about-digits__name">тонн строительного мусора вывезено</div>
+                            </div>
+                            <div class="about-digits__item">
+                                <div class="about-digits__value">12</div>
+                                <div class="about-digits__name">машин в собственном автопарке</div>
+                            </div>
+                            <div class="about-digits__item">
+                                <div class="about-digits__value">28</div>
+                                <div class="about-digits__name">человек в штате: диспетчеры, грузчики, водители</div>
+                            </div>
+                            <div class="about-digits__item">
+                                <div class="about-digits__value">5 600+</div>
+                                <div class="about-digits__name">единиц старой бытовой техники выкуплено</div>
+                            </div>
+                            <div class="about-digits__item">
+                                <div class="about-digits__value">10</div>
+                                <div class="about-digits__name">лет работаем на рынке</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="why__grid">
+                <div class="about-faq">
+                    <div class="tablet-container__inside">
+                        <div class="section-header">Часто задаваемые вопросы</div>
+                        <div class="about-faq__group">
 
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/delivery-man.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Русские рабочие
+                            <div class="about-faq__item">
+                                <div class="about-faq__question">
+                                    Можете ли вы помочь с уборкой строительного мусора перед вывозом?
                                 </div>
-                                <div class="why-card__text">
-                                    Культурные и вежливые<br />
-                                    сотрудники
+                                <div class="about-faq__answer">
+                                    Конечно! У нас есть специальная услуга “Уборка мусора перед вывозом”.
+                                    Предупредите диспетчера при оформлении заказа, что вам потребуется помощь
+                                    со сбором мусора!
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/lorry.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Свой автопарк
-                                </div>
-                                <div class="why-card__text">
-                                    12 грузовых авто разной
-                                    грузоподъемности
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/piggy-bank.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Доступные цены
-                                </div>
-                                <div class="why-card__text">
-                                    12 грузовых авто разной
-                                    грузоподъемности
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/broom.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Делаем уборку
-                                </div>
-                                <div class="why-card__text">
-                                    12 грузовых авто разной
-                                    грузоподъемности
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/receipt.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Квитанция об утилизации
-                                </div>
-                                <div class="why-card__text">
-                                    12 грузовых авто разной
-                                    грузоподъемности
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="why__item">
-                        <div class="why-card">
-                            <div class="why-card__image">
-                                <img src="/assets/template/images/why/credit-card.svg" alt="" />
-                            </div>
-                            <div class="why-card__info">
-                                <div class="why-card__name">
-                                    Безналичная оплата
-                                </div>
-                                <div class="why-card__text">
-                                    12 грузовых авто разной
-                                    грузоподъемности
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
+                            <div class="about-faq__item active">
+                                <div class="about-faq__question">
+                                    Можете ли вы помочь с уборкой строительного мусора перед вывозом?
+                                </div>
+                                <div class="about-faq__answer">
+                                    Конечно! У нас есть специальная услуга “Уборка мусора перед вывозом”.
+                                    Предупредите диспетчера при оформлении заказа, что вам потребуется помощь
+                                    со сбором мусора!
+                                </div>
+                            </div>
+
+                            <div class="about-faq__item">
+                                <div class="about-faq__question">
+                                    Можете ли вы помочь с уборкой строительного мусора перед вывозом?
+                                </div>
+                                <div class="about-faq__answer">
+                                    Конечно! У нас есть специальная услуга “Уборка мусора перед вывозом”.
+                                    Предупредите диспетчера при оформлении заказа, что вам потребуется помощь
+                                    со сбором мусора!
+                                </div>
+                            </div>
+
+                            <div class="about-faq__item">
+                                <div class="about-faq__question">
+                                    Можете ли вы помочь с уборкой строительного мусора перед вывозом?
+                                </div>
+                                <div class="about-faq__answer">
+                                    Конечно! У нас есть специальная услуга “Уборка мусора перед вывозом”.
+                                    Предупредите диспетчера при оформлении заказа, что вам потребуется помощь
+                                    со сбором мусора!
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="feedback">
-        <div class="container">
-            <div class="feedback__body">
-                <div class="section-header">
-                    Остались вопросы? <span class="section-header--desktop">Оставьте заявку и мы свяжемся с вами в ближайшее время!</span>
-                    <span class="section-header--mobile">Закажите звонок и наш специалист перезвонит вам в течение 5 минут для бесплатной консультации!</span>
-                </div>
-                <div class="feedback-form">
-                    <form action="">
-                        <div class="feedback-form__grid">
-                            <div class="feedback-form__left">
-                                <div class="feedback-form__group">
-                                    <div class="feedback-form__item">
-                                        <input type="text" name="name" placeholder="Имя*" />
-                                    </div>
-                                    <div class="feedback-form__item">
-                                        <input type="text" name="name" placeholder="Телефон*" />
-                                    </div>
-                                </div>
-                                <div class="feedback-form__textarea">
-                                    <textarea name="message" placeholder="Сообщение"></textarea>
-                                </div>
-                            </div>
-                            <div class="feedback-form__right">
-                                <div class="feedback-form__button">
-                                    <button class="btn btn-o">Заказать звонок</button>
-                                </div>
-                                <div class="feedback-form__bottom">
-                                    <div class="feedback-form__police">
-                                        Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с
-                                        <a href="#">Политикой Конфиденциальности</a>
-                                    </div>
-                                    <div class="feedback-social">
-                                        <div class="feedback-social__text">
-                                            или свяжитесь с нами
-                                            в мессенджерах
-                                        </div>
-                                        <div class="feedback-social__icons">
-                                            <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#telegram"></use></svg></a>
-                                            <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#vk"></use></svg></a>
-                                            <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#viber"></use></svg></a>
-                                            <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#whatsapp"></use></svg></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    //= include/feedback.html
 
-    //= include/footer.html
-
-
-<div style="display: none">
-
-    <div class="callback" id="callback">
-        <form method="post" action="" class="ajax_form af_optprice">
-            <div class="callback__header">Заказать обратный звонок</div>
-            <div class="callback__lead">
-                Заполните ваши контактные данные, менеджер фабрики Shnurki свяжется с Вами в ближайшее время
-            </div>
-            <div class="callback__item">
-                <input class="callback__input" type="text" placeholder="Ваше имя" name="name">
-            </div>
-            <div class="callback__item">
-                <input class="callback__input" type="text" data-mask="+7 (999) 999-99-99" placeholder="Ваш Телефон" name="phone">
-            </div>
-            <div class="callback__submit">
-                <button class="btn" type="submit">Перезвоните мне</button>
-            </div>
-            <div class="callback__agree">
-                Отправляя форму, вы даете свое согласие на обработку персональных данных и
-                соглашаетесь с условиями <a href="#">политики конфиденциальности</a>
-            </div>
-        </form>
-    </div>
-
-    <div class="product-preview" id="product-preview">
-        <div class="product-preview__grid">
-            <div class="product-preview__image" style="background-image: url('/assets/template/images/products/product-preview.png')"></div>
-            <div class="product-preview__info">
-                <form method="post" class="ms2_form ms2_form_12">
-                    <input type="hidden" name="id" value="12">
-                    <input type="hidden" name="count" value="1">
-                    <input type="hidden" name="options" value="[]">
-
-                    <div class="product-preview__header">Olvist B865</div>
-                    <div class="product-preview__article">
-                        <div class="product-preview__article-key">Артикул:</div>
-                        <div class="product-preview__article-value">B865</div>
-                    </div>
-                    <div class="product-category">
-                        <div class="product-category__item">Круглые</div>
-                    </div>
-                    <div class="product-preview__price">
-                        <span class="product-price">680 руб.</span>
-                    </div>
-
-                    <div class="product-option__group">
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Состав:
-                            </div>
-                            <div class="product-option__value">
-                                100% полиэстер                    </div>
-                        </div>
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Ширина, мм:
-                            </div>
-                            <div class="product-option__value">
-                                6                    </div>
-                        </div>
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Цвет:
-                            </div>
-                            <div class="product-option__value">
-                                <div class="product-options__colors">
-                                    <div class="form-group">
-                                        <div class="radio-inline pull-left">
-                                            <label class="input-parent">
-                                                <input type="radio" name="options[pcolor]" value="белый" checked>
-                                                <div class="color-img" title="белый" style="background-color:#fcf9f9;"></div>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline pull-left">
-                                            <label class="input-parent">
-                                                <input type="radio" name="options[pcolor]" value="синий" >
-                                                <div class="color-img" title="синий" style="background-color:#3366cd;"></div>
-                                            </label>
-                                        </div>
-                                        <div class="radio-inline pull-left">
-                                            <label class="input-parent">
-                                                <input type="radio" name="options[pcolor]" value="черный" >
-                                                <div class="color-img" title="черный" style="background-color:#121212;"></div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Длина:
-                            </div>
-                            <div class="product-option__value">
-                                <div class="product-options__length">
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="95" checked/>
-                                        <div class="length-circle__body">95</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="100" />
-                                        <div class="length-circle__body">100</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="115" />
-                                        <div class="length-circle__body">115</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="120" />
-                                        <div class="length-circle__body">120</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="125" />
-                                        <div class="length-circle__body">125</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[length]" value="130" />
-                                        <div class="length-circle__body">130</div>
-                                    </label>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Обработка:
-                            </div>
-                            <div class="product-option__value">
-                                <div class="product-option__obr">
-                                    <label class="radio">
-                                        <input type="radio" name="options[processing]" value="Вощеные" checked/>
-                                        <div class="radio__text">Вощеные</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[processing]" value="Не вощеные" />
-                                        <div class="radio__text">Не вощеные</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[processing]" value="Утюженные" />
-                                        <div class="radio__text">Утюженные</div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Длина наконечников, мм.:
-                            </div>
-                            <div class="product-option__value">
-                                <div class="product-options__length">
-                                    <label class="radio">
-                                        <input type="radio" name="options[tips_length]" value="8" checked/>
-                                        <div class="length-circle__body">8</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[tips_length]" value="10" />
-                                        <div class="length-circle__body">10</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[tips_length]" value="12" />
-                                        <div class="length-circle__body">12</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[tips_length]" value="15" />
-                                        <div class="length-circle__body">15</div>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" name="options[tips_length]" value="20" />
-                                        <div class="length-circle__body">20</div>
-                                    </label>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="product-option">
-                            <div class="product-option__name">
-                                Наличие:
-                            </div>
-                            <div class="product-option__value">
-                                есть на складе
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-preview__button">
-                        <button class="btn" name="ms2_action" value="cart/add"><img src="/assets/template/images/bag.svg" alt="" />Добавить в корзину</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-
-
-
-    </div>
-</div>
-
-    <link rel="stylesheet" href="/assets/template/vendor/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="/assets/template/vendor/slick/slick-theme.css"/>
-    <link rel="stylesheet" href="/assets/template/vendor/fancybox/jquery.fancybox.min.css" />
-
-
-    <script src="/assets/template/vendor/jquery-3.2.1.min.js"></script>
-    <script src="/assets/template/vendor/jquery.inputmask.bundle.js"></script>
-    <script src="/assets/template/vendor/slick/slick.js"></script>
-    <script src="assets/template/vendor/fancybox/jquery.fancybox.min.js"></script>
-    <script src="/assets/template/js/scripts.js"></script>
-
-    //= include/mediahelp.html
-
-</body>
-</html>
+//= include/footer.html
+//= include/mediahelp.html

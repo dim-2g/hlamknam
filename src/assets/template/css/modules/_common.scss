@@ -28,6 +28,20 @@ body *{
     }
   }
 }
+@media (max-width: 750px) {
+  .tablet-container{
+    width: 100%;
+    padding: 0;
+  }
+}
+.tablet-container{
+  &__inside{
+    padding: 0 15px;
+    @media ($bp-larger-than-tablet) {
+      padding: 0;
+    }
+  }
+}
 .in-mobile{
   display: inline;
   @media($bp-larger-than-phablet) {
@@ -276,6 +290,7 @@ a{
     display: block;
   }
   &__grid{
+    height: 1px;
     min-height: 40px;
     display: flex;
     align-items: center;
@@ -476,6 +491,7 @@ a{
     display: block;
   }
    &__grid{
+     height: 1px;
     min-height: 48px;
     display: flex;
     justify-content: center;
@@ -617,6 +633,12 @@ a{
     top: 0;
     left: 0;
     bottom: 0;
+  }
+  &--white{
+    color: #fff;
+    &:before{
+      background-color: #fff;
+    }
   }
   &__more{
     float: right;
@@ -883,6 +905,7 @@ a{
     flex-direction: column;
   }
   &__header-box{
+    height: 1px;
     min-height: 45px;
     display: flex;
     align-items: center;
@@ -1090,4 +1113,387 @@ a{
     }
   }
 }
+
+.actions{
+  padding: 33px 0 37px;
+  background: #F78764;
+}
+.action-slider{
+  .owl-nav {
+    height: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+  .owl-prev{
+    left: -35px;
+    position: absolute;
+    top: -25px;
+    span{
+      display: none;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($slide-prev)
+    }
+  }
+  .owl-next{
+    right: -35px;
+    position: absolute;
+    top: -25px;
+    span{
+      display: none;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($slide-next)
+    }
+  }
+  .owl-dots{
+    text-align: center;
+    height: 5px;
+    font-size: 0;
+    margin-top: 5px;
+  }
+  button.owl-dot{
+    padding: 6px 0 !important;
+    span{
+      width: 20px;
+      height: 5px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1px solid #FFFFFF;
+      display: block;
+      margin: 0 5px;
+    }
+    &.active{
+      span{
+        background-color: #EF5C2E;
+      }
+    }
+  }
+  &__image{
+    img{
+      font-size: 0;
+      vertical-align: top;
+    }
+  }
+  &__card{
+    position: relative;
+    color: #2C2C2C;
+    text-decoration: none;
+    display: block;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    height: 1px;
+    min-height: 70px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.about{
+  padding: 0px 0 30px;
+  @media ($bp-larger-than-tablet) {
+    padding: 26px 0 30px;
+  }
+  &__grid{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @media ($bp-larger-than-tablet) {
+      flex-direction: row;
+    }
+  }
+}
+.about-digits{
+  padding-top: 8px;
+  width: 100%;
+  margin-right: 30px;
+  margin-bottom: 12px;
+  background-color: #F2F2F2;
+  padding-bottom: 5px;
+  @media ($bp-larger-than-phablet) {
+    padding-bottom: 0;
+  }
+  @media ($bp-larger-than-tablet) {
+    padding-top: 0;
+    max-width: 382px;
+    margin-bottom: 0;
+    background-color: #FFF;
+  }
+  .section-header{
+    margin-bottom: 10px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 20px;
+    }
+  }
+  &__item{
+    display: flex;
+    margin-bottom: 11px;
+  }
+  &__value{
+    margin-right: 36px;
+    width: 96px;
+    height: 48px;
+    flex-shrink: 0;
+    background: #EF5C2E;
+    border: 1px solid #EF5C2E;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name{
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    @media ($bp-larger-than-phablet) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+  &__group{
+    @media ($bp-larger-than-phablet) {
+      margin-top: 32px;
+    }
+  }
+}
+.about-faq{
+  max-width: 660px;
+  width: 100%;
+  &__grid{
+
+  }
+  &__group{
+    @media ($bp-larger-than-phablet) {
+      margin-top: 32px;
+    }
+  }
+  .section-header{
+    margin-bottom: 16px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 20px;
+    }
+  }
+  &__item{
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 10px;
+    }
+    &.active{
+      border: 1px solid #EF5C2E;
+      .about-faq__answer{
+        display: block;
+        border-top: 1px solid #EF5C2E;
+      }
+      .about-faq__question{
+        &:after{
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+
+    }
+  }
+  &__question{
+    height: 1px;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 7px 41px 7px 9px;
+    position: relative;
+    cursor: pointer;
+    @media ($bp-larger-than-phablet) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    &:after{
+      display: inline-block;
+      content: "";
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include sprite($faq-arrow);
+    }
+  }
+  &__answer{
+    display: none;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 4px 11px;
+    border-top: 1px solid #C4C4C4;
+    @media ($bp-larger-than-phablet) {
+      font-size: 14px;
+      line-height: 16px;
+      padding: 15px 11px;
+    }
+  }
+}
+
+.main-slider{
+  position: relative;
+  &__item{
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+  img{
+    max-width: 100%;
+  }
+  &__container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  &__info{
+    background: rgba(255, 255, 255, 0.85);
+    padding: 28px 33px 33px 33px;
+    width: 367px;
+  }
+  &__text{
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    border-left: 1px solid #EF5C2E;
+    padding-left: 12px;
+  }
+}
+
+.main-slider-js{
+  &.owl-carousel{
+    z-index: auto;
+  }
+  .owl-nav{
+    font-size: 50px;
+    text-align: center;
+    position: absolute;
+  }
+  .owl-dots{
+    text-align: center;
+    height: 5px;
+    font-size: 0;
+    margin-top: 5px;
+    position: absolute;
+    bottom: 23px;
+    width: 100%;
+    z-index: 3;
+  }
+  button.owl-dot{
+    z-index: 3;
+    padding: 6px 0 !important;
+    span{
+      width: 40px;
+      height: 10px;
+      background: #fff;
+      border: 1px solid #EF5C2E;
+      box-sizing: border-box;
+      display: block;
+      margin: 0 14px;
+    }
+    &.active{
+      span{
+        background-color: #EF5C2E;
+      }
+    }
+  }
+}
+
+.main-slider-form{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  .container{
+    position: relative;
+  }
+  &__grid{
+    display: flex;
+    justify-content: flex-end;
+    cursor-event: none
+  }
+  &__panel{
+    width: 365px;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    padding: 26px 32px;
+    height: 500px;
+  }
+  &__item{
+    margin-bottom: 23px;
+  }
+  input[type="text"]{
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 45px;
+    padding: 0px 22px;
+  }
+  .btn{
+    max-width: 100%;
+  }
+  &__police{
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #C4C4C4;
+    margin-bottom: 12px;
+    a{
+      color: #C4C4C4;
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}
+.styler{
+  height: 45px;
+  width: 100%;
+  line-height: 45px;
+  .jq-selectbox{
+    &__trigger-arrow{
+      border: 0 none;
+      top: 6px;
+      right: 23px;
+      &:before{
+        content: "";
+        display: inline-block;
+        @include sprite($select-arrow);
+      }
+    }
+  }
+}
+
 
