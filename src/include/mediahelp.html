@@ -1,0 +1,42 @@
+<div class="bp-larger-than">
+    <div class="bp-larger-than-first">
+        
+    </div>
+    <div class="bp-larger-than-iphone5">
+        @media ($bp-larger-than-iphone5) {}
+    </div>
+    <div class="bp-larger-than-iphone6">
+        @media ($bp-larger-than-iphone6) {}
+    </div>
+    <div class="bp-larger-than-mobile">
+        @media ($bp-larger-than-mobile) {}
+    </div>
+    <div class="bp-larger-than-phablet">
+        @media ($bp-larger-than-phablet) {}
+    </div>
+    <div class="bp-larger-than-tablet">
+        @media ($bp-larger-than-tablet) {}
+    </div>
+    <div class="bp-larger-than-desktop">
+        @media ($bp-larger-than-desktop) {}
+    </div>
+    <div class="bp-larger-than-desktophd">
+        @media ($bp-larger-than-desktophd) {}
+    </div>
+    <div class="bp-larger-than-note">
+        @media ($bp-larger-than-note) {}
+    </div>
+    <div class="bp-larger-than-desktopfullhd">
+        @media ($bp-larger-than-desktopfullhd) {}
+    </div>
+    <div class="now-width__wrap">width: <span class="now-width"></span>px</div>
+</div>
+<script>
+    (setWidth = function() {
+        var width = jQuery(window).width();
+        jQuery('.now-width').text(width);
+    })();
+    jQuery(window).resize(function(){
+        setWidth();
+    });
+</script>

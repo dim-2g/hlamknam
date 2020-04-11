@@ -1,0 +1,42 @@
+// Variables
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// Breakpoints
+$bp-larger-than-iphone5    : "min-width: 350px" !default;
+$bp-larger-than-iphone6    : "min-width: 374px" !default;
+$bp-larger-than-mobile    : "min-width: 400px" !default;
+$bp-larger-than-phablet   : "min-width: 550px" !default;
+$bp-larger-than-tablet    : "min-width: 750px" !default;
+$bp-larger-than-desktop   : "min-width: 1000px" !default;
+$bp-larger-than-desktophd : "min-width: 1200px" !default;
+$bp-larger-than-note : "min-width: 1360px" !default;
+$bp-larger-than-desktopfullhd   : "min-width: 1520px" !default;
+
+$bp-larger-than-1170 : "min-width: 1170px" !default;
+$bp-larger-than-1250   : "min-width: 1250px" !default;
+$bp-larger-than-1400   : "min-width: 1400px" !default;
+
+// Colors
+$light-grey: #e1e1e1 !default;
+$dark-grey: #333 !default;
+$primary-color: #33c3f0 !default;
+$secondary-color: lighten($dark-grey, 13.5%) !default;
+$border-color: #bbb !default;
+$link-color: #1eaedb !default;
+$font-color: #222 !default;
+
+// Typography
+$font-family: 'Open Sans', sans-serif !default;
+
+//Grid Variables
+$container-width: 1170px !default;
+$container-width-larger-than-mobile: 100% !default;
+$container-width-larger-than-phablet: 100% !default;
+$container-width-larger-than-desktop: 100% !default;
+$container-width-larger-than-1400: 100% !default;
+$total-columns: 12 !default;
+$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
+$column-margin: 0% !default; // space between columns
+
+// Misc
+$global-radius: 0px !default;

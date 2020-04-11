@@ -1,0 +1,65 @@
+.bp-larger-than{
+    position: fixed;
+    bottom: 0;
+    //top: 0;
+    left: 0;
+    border: 1px #eaeaea solid;
+    padding: 5px;
+    background-color: #fff;
+    z-index: 1000;
+    font-size: 12px;
+    &-iphone5{
+      opacity: 0.5;
+      @media($bp-larger-than-iphone5){
+        opacity: 1;
+      }
+    }
+    &-iphone6{
+      opacity: 0.5;
+      @media($bp-larger-than-iphone6){
+        opacity: 1;
+      }
+    }
+    &-mobile{
+      opacity: 0.5;
+      @media($bp-larger-than-mobile){
+        opacity: 1;
+      }
+    }
+    &-phablet{
+      opacity: 0.5;
+      @media($bp-larger-than-phablet){
+        opacity: 1;
+      }
+    }
+    &-tablet{
+      opacity: 0.5;
+      @media($bp-larger-than-tablet){
+        opacity: 1;
+      }
+    }
+    &-desktop{
+      opacity: 0.5;
+      @media($bp-larger-than-desktop){
+        opacity: 1;
+      }
+    }
+    &-desktophd{
+      opacity: 0.5;
+      @media($bp-larger-than-desktophd){
+        opacity: 1;
+      }
+    }
+    &-note{
+      opacity: 0.5;
+      @media($bp-larger-than-note){
+        opacity: 1;
+      }
+    }
+    &-desktopfullhd{
+      opacity: 0.5;
+      @media($bp-larger-than-desktopfullhd){
+        opacity: 1;
+      }
+    }
+  }

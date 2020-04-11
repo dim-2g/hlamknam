@@ -1,0 +1,39 @@
+/*
+Light
+Regular
+Semibold
+Bold
+*/
+$green: #398860;
+$blue: #1e375f;
+$light-blue: #f3f6f9;
+$gray: #585862;
+$orange: #F27D58;
+$red: #ff0000;
+$anim: all 0.2s ease 0s;
+$overlay: rgba(49,49,49,0.8);
+$block-shadow-down: 0 12px 6px -8px #cacaca;
+$anim5: all 0.5s;
+$cubic: all 0.5s cubic-bezier(0.3, 0, 0.2, 1);
+$cubic02: all 0.2s cubic-bezier(0.3, 0, 0.2, 1);
+
+$gradient: linear-gradient(36deg, #4fadfc 17%, #02f1fd 83%);
+
+$font-weight-thin: 100;
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+/*
+для мобильника без медиа
+для смарта > 360
+для планшета >750
+для ноутбука > 1000
+для mac > 1390
+для 1920 > 1500
+ */
