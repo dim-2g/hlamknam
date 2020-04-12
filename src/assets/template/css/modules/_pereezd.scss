@@ -1,5 +1,9 @@
 .breadcrumbs{
   padding: 12px 0 19px;
+  display: none;
+  @media ($bp-larger-than-phablet) {
+    display: block;
+  }
   ul{
     margin: 0;
     padding: 0;
@@ -38,7 +42,10 @@
 }
 
 .steps{
-  padding: 0 0 32px;
+  padding: 9px 0 32px;
+  @media ($bp-larger-than-phablet) {
+    padding: 0 0 37px;
+  }
 }
 .steps-line{
   justify-content: space-between;
@@ -61,7 +68,7 @@
     z-index: 1;
   }
   &__item{
-    width: 160px;
+    width: 184px;
     text-align: center;
     position: relative;
     padding-top: 48px;
@@ -87,6 +94,16 @@
     &.active{
       &:before{
         background-color: #EF5C2E;
+      }
+      &:after{
+        content: "";
+        display: inline-block;
+        @include sprite($step-active);
+        position: absolute;
+        top: 13px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
       }
     }
   }
@@ -188,7 +205,8 @@
 }
 
 .discount{
-  background: url("/assets/template/images/bg-discount.png") center center no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 21px 0;
   &__box{
     display: flex;
@@ -249,29 +267,55 @@
 
 .price{
   background: #F2F2F2;
-  padding: 25px 0 36px;
+  padding: 29px 0 36px;
+  @media ($bp-larger-than-phablet) {
+    padding: 25px 0 36px;
+  }
 }
 .price-table{
+  margin-top: 27px;
+  @media ($bp-larger-than-phablet) {
+    margin-top: 23px;
+  }
   &__captions{
     width: 242px;
     flex-shrink: 0;
     //display: flex;
+    display: none;
+    @media ($bp-larger-than-phablet) {
+      display: block;
+    }
   }
   &__columns{
     width: 100%;
+    @media ($bp-larger-than-phablet) {
+      width: 300px;
+    }
+    @media ($bp-larger-than-desktop) {
+      width: 599px;
+    }
+    @media ($bp-larger-than-desktophd) {
+      width: 898px;
+    }
     .price-table{
       &__cell{
         margin-left: -1px;
       }
     }
   }
+  &__cols{
+    display: flex;
+  }
   &__column{
-    width: 300px;
-    flex-shrink: 0;
-    margin-left: -1px;
+    width: 100%;
+    @media ($bp-larger-than-phablet) {
+      width: 300px;
+      flex-shrink: 0;
+      margin-left: -1px;
+    }
   }
   &__th{
-    height: 242px;
+    height: 225px;
     border: 1px solid #C4C4C4;
     display: flex;
     align-items: center;
@@ -283,21 +327,52 @@
     flex-direction: column;
     background-color: #fff;
   }
-  &__cell{
-    background-color: #fff;
-    height: 120px;
+  &__image{
+    height: 145px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    @media ($bp-larger-than-phablet) {
+      height: 140px;
+    }
+    img{
+      max-width: 100%;
+    }
+  }
+  &__cell{
+    background-color: #fff;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 21px;
     border: 1px solid #C4C4C4;
     position: relative;
     margin-top: -1px;
     padding: 15px;
     width: 100%;
+    flex-direction: column;
+    @media ($bp-larger-than-iphone6) {
+      font-size: 18px;
+    }
+    @media ($bp-larger-than-phablet) {
+      height: 120px;
+      align-items: center;
+    }
+  }
+  &__mobile-label{
+    display: block;
+    margin-bottom: 8px;
+    @media ($bp-larger-than-iphone6) {
+      margin-bottom: 13px;
+    }
+    @media ($bp-larger-than-phablet) {
+      display: none;
+    }
   }
 }
 .dinamic-price{
@@ -305,4 +380,156 @@
 }
 .static-price{
   display: flex;
+}
+.price-slider-js{
+  &.owl-carousel{
+    width: 100%;
+    @media ($bp-larger-than-phablet) {
+      width: 299px;
+    }
+    @media ($bp-larger-than-desktop) {
+      width: 598px;
+    }
+    @media ($bp-larger-than-desktophd) {
+      width: 897px;
+    }
+  }
+  .owl-nav {
+    height: 0;
+    position: absolute;
+    top: 112px;
+    width: 100%;
+    @media ($bp-larger-than-phablet) {
+      top: 128px;
+    }
+  }
+  .owl-prev{
+    left: 14px;
+    position: absolute;
+    top: -25px;
+    span{
+      display: none;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($prev-price-slider)
+    }
+  }
+  .owl-next{
+    right: 14px;
+    position: absolute;
+    top: -25px;
+    span{
+      display: none;
+    }
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($next-price-slider)
+    }
+  }
+}
+
+.faqs{
+  padding: 28px 0 9px;
+  @media ($bp-larger-than-phablet) {
+    padding: 34px 0;
+  }
+  &__grid{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__questions{
+    margin-right: 0;
+    @media ($bp-larger-than-desktop) {
+      margin-right: 30px;
+    }
+    .about-faq__group{
+      max-width: 656px;
+    }
+  }
+  &__form{
+    width: 365px;
+    flex-shrink: 0;
+    display: none;
+    @media ($bp-larger-than-desktop) {
+      display: block;
+    }
+  }
+}
+
+.faq-form{
+  border: 1px solid #C4C4C4;
+  padding: 20px 32px 15px;
+  .section-header{
+    margin-bottom: 14px;
+  }
+  &__police{
+    order: 2;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    color: #C4C4C4;
+    margin-bottom: 6px;
+    @media ($bp-larger-than-phablet) {
+      order: 1;
+    }
+    a{
+      color: #C4C4C4;
+      text-decoration: underline;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  &__item{
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  input[type="text"]{
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    height: 45px;
+    padding: 0px 22px;
+  }
+  &__button{
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .btn-o{
+    max-width: 100%;
+    &:hover{
+    }
+  }
+}
+
+.faq-social{
+  margin-bottom: 10px;
+  &__text{
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  &__icons{
+    text-align: center;
+  }
+}
+
+.stext{
+  background: #F2F2F2;
+  padding: 37px 0;
+  font-weight: 300;
+}
+.desktop-feedback-form{
+  display: block;
+  @media ($bp-larger-than-desktop) {
+    display: none;
+  }
 }

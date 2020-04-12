@@ -72,6 +72,25 @@ a{
   }
 }
 
+.styler{
+  height: 45px;
+  width: 100%;
+  line-height: 45px;
+}
+.jq-selectbox{
+  &__trigger-arrow{
+    border: 0 none;
+    top: 6px;
+    right: 23px;
+    &:before{
+      content: "";
+      display: inline-block;
+      @include sprite($select-arrow);
+    }
+  }
+}
+
+
 .topline{
   background: #ACACAC;
   &__grid{
@@ -139,9 +158,31 @@ a{
     }
   }
 }
+body{
+  &.fix-header{
+    padding-top: 88px;
+    @media ($bp-larger-than-phablet) {
+      padding-top: 133px;
+    }
+    @media ($bp-larger-than-tablet) {
+      padding-top: 170px;
+    }
+    .fixed-header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+    }
+  }
+}
 
 .header{
   background: #F2F2F2;
+  border-bottom: 3px solid #F27D58;
+  @media ($bp-larger-than-tablet) {
+    border: 0 none;
+  }
   &__grid{
     display: flex;
     justify-content: space-between;
@@ -639,6 +680,11 @@ a{
     &:before{
       background-color: #fff;
     }
+  }
+  &__subheader{
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 115%;
   }
   &__more{
     float: right;
@@ -1325,7 +1371,7 @@ a{
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
-    padding: 7px 41px 7px 9px;
+    padding: 7px 40px 7px 9px;
     position: relative;
     cursor: pointer;
     @media ($bp-larger-than-phablet) {
@@ -1360,29 +1406,47 @@ a{
 .main-slider{
   position: relative;
   &__item{
-    height: 500px;
+    height: 200px;
     background-size: cover;
     background-position: center;
+    @media ($bp-larger-than-phablet) {
+      height: 500px;
+    }
   }
   img{
     max-width: 100%;
   }
   &__container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
+    @media ($bp-larger-than-phablet) {
+      align-items: center;
+    }
   }
   &__info{
     background: rgba(255, 255, 255, 0.85);
-    padding: 28px 33px 33px 33px;
-    width: 367px;
+    padding: 13px;
+    width: 283px;
+    margin-top: 18px;
+    margin-left: 22px;
+    @media ($bp-larger-than-phablet) {
+      width: 367px;
+      padding: 28px 33px 33px 33px;
+      margin-left: 0;
+    }
   }
   &__text{
     font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 20px;
     border-left: 1px solid #EF5C2E;
-    padding-left: 12px;
+    padding-left: 5px;
+    @media ($bp-larger-than-phablet) {
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 28px;
+    }
   }
 }
 
@@ -1396,26 +1460,40 @@ a{
     position: absolute;
   }
   .owl-dots{
-    text-align: center;
     height: 5px;
     font-size: 0;
     margin-top: 5px;
     position: absolute;
-    bottom: 23px;
+    bottom: 20px;
     width: 100%;
     z-index: 3;
+    text-align: center;
+    @media ($bp-larger-than-phablet) {
+      bottom: 23px;
+    }
+    @media ($bp-larger-than-tablet) {
+      text-align: left;
+    }
+    @media ($bp-larger-than-desktop) {
+      text-align: center;
+    }
   }
   button.owl-dot{
     z-index: 3;
     padding: 6px 0 !important;
     span{
-      width: 40px;
-      height: 10px;
+      width: 20px;
+      height: 5px;
       background: #fff;
       border: 1px solid #EF5C2E;
       box-sizing: border-box;
       display: block;
-      margin: 0 14px;
+      margin: 0 6px;
+      @media ($bp-larger-than-phablet) {
+        margin: 0 14px;
+        width: 40px;
+        height: 10px;
+      }
     }
     &.active{
       span{
@@ -1426,41 +1504,111 @@ a{
 }
 
 .main-slider-form{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
+  margin-top: 13px;
+  @media ($bp-larger-than-phablet) {
+    margin-top: 30px;
+  }
+  @media ($bp-larger-than-tablet) {
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
   .container{
     position: relative;
   }
+  .section-header{
+    margin-bottom: 14px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 20px;
+    }
+  }
   &__grid{
     display: flex;
-    justify-content: flex-end;
-    cursor-event: none
+    justify-content: center;
+    cursor-event: none;
+    @media ($bp-larger-than-tablet) {
+      justify-content: flex-end;
+    }
   }
   &__panel{
     width: 365px;
     background: #FFFFFF;
-    border: 1px solid #C4C4C4;
     box-sizing: border-box;
-    padding: 26px 32px;
-    height: 500px;
+
+    @media ($bp-larger-than-tablet) {
+      border: 1px solid #C4C4C4;
+      padding: 26px 32px;
+      height: 500px;
+    }
   }
   &__item{
-    margin-bottom: 23px;
+    margin-bottom: 12px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 23px;
+    }
   }
   input[type="text"]{
     width: 100%;
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
-    height: 45px;
-    padding: 0px 22px;
+    height: 40px;
+    padding: 0px 11px;
+    @media ($bp-larger-than-phablet) {
+      padding: 0px 22px;
+      height: 45px;
+    }
   }
+  .jq-selectbox__select {
+    height: 40px;
+    padding: 0 45px 0 11px;
+    border: 1px solid #C4C4C4;
+    background: #fff;
+    @media ($bp-larger-than-phablet) {
+      padding: 0 45px 0 20px;
+      height: 45px;
+    }
+  }
+  .jq-selectbox__select-text{
+    height: 40px;
+    line-height: 39px;
+    @media ($bp-larger-than-phablet) {
+      height: 45px;
+      line-height: 44px;
+    }
+  }
+  .jq-selectbox{
+    &__trigger-arrow{
+      border: 0 none;
+      top: 3px;
+      right: 23px;
+      @media ($bp-larger-than-phablet) {
+        top: 6px;
+      }
+      &:before{
+        content: "";
+        display: inline-block;
+        @include sprite($select-arrow);
+      }
+    }
+  }
+  .styler{
+    height: 40px;
+    @media ($bp-larger-than-phablet) {
+      height: 45px;
+    }
+  }
+
   .btn{
     max-width: 100%;
+    height: 40px;
+    @media ($bp-larger-than-phablet) {
+      height: 45px;
+    }
   }
   &__police{
     font-weight: normal;
@@ -1474,23 +1622,6 @@ a{
       text-decoration: underline;
       &:hover{
         text-decoration: none;
-      }
-    }
-  }
-}
-.styler{
-  height: 45px;
-  width: 100%;
-  line-height: 45px;
-  .jq-selectbox{
-    &__trigger-arrow{
-      border: 0 none;
-      top: 6px;
-      right: 23px;
-      &:before{
-        content: "";
-        display: inline-block;
-        @include sprite($select-arrow);
       }
     }
   }

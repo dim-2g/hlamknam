@@ -40,6 +40,8 @@ $(function() {
     initMainSlider();
     //инициализация слайдера Акций
     initActionSlider();
+    //инициализация слайдера парйс-листа
+    initPriceSlider();
     //скрываем часть товаров под кнопку Показать все
     //setCountProducts();
     //инициализация слайдера Виды узлов
@@ -114,16 +116,6 @@ var initMainSlider = function() {
                 items: 1,
                 nav: false,
                 dots: true,
-            },
-            1000:{
-                items: 2,
-                nav: false,
-                dots: true,
-            },
-            1230:{
-                items: 1,
-                nav: false,
-                dots: true,
             }
         }
     });
@@ -149,6 +141,38 @@ var initActionSlider = function() {
             },
             1230:{
                 items: 2,
+                nav: true,
+                dots: false,
+            }
+        }
+    });
+};
+
+var initPriceSlider = function() {
+    var selector = '.price-slider-js';
+    $(selector).owlCarousel({
+        loop: true,
+        margin: 0,
+        responsiveClass:true,
+        //autoWidth:true,
+        responsive:{
+            0:{
+                items: 1,
+                nav: true,
+                dots: false,
+            },
+            550:{
+                items: 1,
+                nav: true,
+                dots: false,
+            },
+            1000:{
+                items: 2,
+                nav: true,
+                dots: false,
+            },
+            1200:{
+                items: 3,
                 nav: true,
                 dots: false,
             }
@@ -266,8 +290,8 @@ $(window).resize(function(){
 var resizedw = function(){
     //var width = $(window).width();
     //console.log('Перестроить слайдеры');
-    setCountProducts();
-    initTestimonialsSlider();
-    initNodesSlider();
-    hideSlideMenu();
+    //setCountProducts();
+    //initTestimonialsSlider();
+    //initNodesSlider();
+    //hideSlideMenu();
 }
