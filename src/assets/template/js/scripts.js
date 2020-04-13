@@ -42,6 +42,8 @@ $(function() {
     initActionSlider();
     //инициализация слайдера парйс-листа
     initPriceSlider();
+    //инициализация слайдера машин на странице О компании
+    initCarSlider();
     //скрываем часть товаров под кнопку Показать все
     //setCountProducts();
     //инициализация слайдера Виды узлов
@@ -141,6 +143,38 @@ var initActionSlider = function() {
             },
             1230:{
                 items: 2,
+                nav: true,
+                dots: false,
+            }
+        }
+    });
+};
+
+var initCarSlider = function() {
+    var selector = '.car-slider-js';
+    $(selector).owlCarousel({
+        loop: true,
+        margin: 0,
+        responsiveClass:true,
+        //autoWidth:true,
+        responsive:{
+            0:{
+                items: 1,
+                nav: true,
+                dots: false,
+            },
+            750:{
+                items: 2,
+                nav: true,
+                dots: false,
+            },
+            1000:{
+                items: 3,
+                nav: true,
+                dots: false,
+            },
+            1200:{
+                items: 4,
                 nav: true,
                 dots: false,
             }
