@@ -1,0 +1,23 @@
+.catalog{
+  padding: 13px 0;
+  &__grid{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    justify-content: center;
+    @media ($bp-larger-than-desktop) {
+      justify-content: flex-start;
+    }
+  }
+  &__item{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+  }
+  .section-header{
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+}

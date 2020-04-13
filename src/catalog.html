@@ -1,0 +1,1335 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Главная страница</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet"-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/template/vendor/owlcarousel/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/template/vendor/owlcarousel/owl.theme.default.css">
+
+    <link rel="stylesheet" href="/assets/template/css/main.css">
+
+</head>
+<body class="fix-header">
+
+<div class="fixed-header">
+    <div class="topline">
+        <div class="container">
+            <div class="topline__grid topline__grid--desktop">
+                <ul class="topline-menu">
+                    <li><a href="#">Автопарк</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Сотрудничество</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Купить б/у бытовую технику</a></li>
+                </ul>
+            </div>
+            <div class="topline__grid topline__grid--mobile">
+                <div class="topline-city">
+                    <svg class="topline-city__marker"><use xlink:href="/assets/template/css/sprites/sprite.svg#marker"></use></svg>
+                    <a href="#">Санкт-Петербург</a>
+                </div>
+                <ul class="topline-menu">
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="header__grid">
+                <div class="header__logo">
+                    <a href="/"><img src="/assets/template/images/logo.png" alt=""></a>
+                </div>
+                <div class="header__slogan">
+                    Вывоз мусора<br />
+                    в Санкт-Петербурге<br />
+                    и Ленинградской области
+                </div>
+                <div class="header__phones">
+                    <div class="header-phone">
+                        <a href="tel:8 (812) 920-38-54">8 (812) 920-38-54</a>
+                    </div>
+                    <div class="header-worktime">с 8.00 до 22.30</div>
+                </div>
+                <div class="header__emails">
+                    <div class="header-email">
+                        <a href="mailto:zakaz@hlamknam.ru">zakaz@hlamknam.ru</a>
+                    </div>
+                    <div class="header-email__hint">круглосуточно</div>
+                </div>
+                <div class="header__callback">
+                    <a href="#" class="btn btn-o">Заказать звонок</a>
+                </div>
+                <div class="header__burger">
+                    <a href="#" class="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-menu">
+        <div class="container">
+            <div class="top-menu__grid">
+                <ul class="top-nav">
+                    <li><a href="#">Вывоз мусора</a></li>
+                    <li><a href="#">Бесплатный вывоз</a></li>
+                    <li><a href="#">Грузоперевозки</a></li>
+                    <li><a href="#">Дополнительные услуги</a></li>
+                    <li><a href="#">Стоимость услуг</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-slider">
+    <div class="main-slider__box owl-carousel main-slider-js">
+        <div class="main-slider__item" style="background-image: url('/assets/template/images/slider/slide-1.jpg')">
+            <div class="container main-slider__container">
+                <div class="main-slider__info">
+                    <div class="main-slider__text">
+                        Вывоз строительного мусора: быстро, чисто, аккуратно
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-slider__item" style="background-image: url('/assets/template/images/slider/slide-2.jpg')">
+            <div class="container main-slider__container">
+                <div class="main-slider__info">
+                    <div class="main-slider__text">
+                        Квартирный переезд
+                        с ХЛАМКНАМ
+                        всегда быстрее и проще
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-slider-form">
+        <div class="container">
+            <div class="main-slider-form__grid">
+                <div class="main-slider-form__panel">
+                    <div class="section-header">Расчитать стоимость</div>
+                    <div class="main-slider-form__item">
+                        <input type="text" name="name" placeholder="Имя*">
+                    </div>
+                    <div class="main-slider-form__item">
+                        <input type="text" name="phone" placeholder="Телефон*" data-mask="+7 (999) 999-99-99">
+                    </div>
+                    <div class="main-slider-form__item">
+                        <input type="text" name="phone" placeholder="Адрес*">
+                    </div>
+                    <div class="main-slider-form__item">
+                        <select name="service" class="styler">
+                            <option value="Вывоз мусора">Вывоз мусора</option>
+                            <option value="Квартирный переезд">Квартирный переезд</option>
+                            <option value="Бесплатный вывоз мусора">Бесплатный вывоз мусора</option>
+                        </select>
+                    </div>
+                    <div class="main-slider-form__item">
+                        <button class="btn btn-o">Заказать звонок</button>
+                    </div>
+                    <div class="main-slider-form__police">
+                        Нажимая на кнопку, вы даете согласие на обработку персональных данных в
+                        соответствии с <a href="#">Политикой Конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs__body">
+            <ul>
+                <li><a href="#">Главная страница</a></li>
+                <li><span>Каталог услуг</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="catalog section-gray">
+    <div class="container">
+        <div class="catalog__box">
+            <div class="section-header">
+                Вывоз строительного мусора
+            </div>
+
+            <div class="catalog__grid">
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/service-1.png" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз мусора
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз мусора
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="catalog">
+    <div class="container">
+        <div class="catalog__box">
+            <div class="section-header">
+                Бесплатный вызов
+            </div>
+
+            <div class="catalog__grid">
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-1.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз чугунных ванн
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз чугунных ванн
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-2.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз холодильников
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз холодильников
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-3.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз стиральных машин
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз стиральных машин
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-4.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз батарей отопления
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз батарей отопления
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-5.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз посудомоечных машин
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз посудомоечных машин
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-6.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз металлических дверей
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз металлических дверей
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-7.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз утилизированных автомобилей
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз утилизированных автомобилей
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-8.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз металлолома
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз металлолома
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-9.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз кухонных плит
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз кухонных плит
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-10.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз газовых колонок
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз газовых колонок
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/export-11.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Вывоз кондиционеров
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Вывоз кондиционеров
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="catalog section-orange">
+    <div class="container">
+        <div class="catalog__box">
+            <div class="section-header section-header--white">
+                Грузоперевозки
+            </div>
+
+            <div class="catalog__grid">
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-1.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Перевозка мебели
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Перевозка мебели
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-2.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Перевозка бытовой техники
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Перевозка бытовой техники
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-3.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Перевозка строительных материалов
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Перевозка строительных материалов
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-4.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Грузовое такси
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Грузовое такси
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-5.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Квартирный переезд
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Квартирный переезд
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-6.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Дачный переезд
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Дачный переезд
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/cargo-7.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Офисный переезд
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Офисный переезд
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="catalog">
+    <div class="container">
+        <div class="catalog__box">
+            <div class="section-header">
+                Дополнительные услуги
+            </div>
+
+            <div class="catalog__grid">
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/services-1.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Услуги грузчиков
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Услуги грузчиков
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/services-2.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Сборка - разборка мебели
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Сборка - разборка мебели
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/services-3.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Упаковка вещей
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Упаковка вещей
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/services-4.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Сбор мусора
+                                перед вывозом
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Сбор мусора
+                                перед вывозом
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog__item">
+                    <div class="service-card">
+                        <img src="/assets/template/images/services-5.jpg" alt="" />
+                        <div class="service-card__header">
+                            <div class="service-card__header-box">
+                                Демонтаж металлоконструкций
+                            </div>
+                            <div class="service-card__info">
+                                <div class="service-card__info-price">
+                                    от 1500 рублей
+                                </div>
+                                <div class="service-card__info-time">
+                                    от 3 часов
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card__panel">
+                            <div class="service-card__title">
+                                Демонтаж металлоконструкций
+                            </div>
+                            <div class="service-card__text">
+                                Здесь будет краткий информационный текст об услуге, чтобы можно было яснее понять
+                                в чем она состоит и какие боли клиента может решить.
+                            </div>
+                            <div class="service-card__price">
+                                от 1500 рублей
+                            </div>
+                            <div class="service-card__time">
+                                от 3 часов
+                            </div>
+                            <div class="service-card__button">
+                                <a href="#" class="btn">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="feedback section-gray">
+    <div class="container">
+        <div class="feedback__body">
+            <div class="section-header">
+                Остались вопросы? <span class="section-header--desktop">Оставьте заявку и мы свяжемся с вами в ближайшее время!</span>
+                <span class="section-header--mobile">Закажите звонок и наш специалист перезвонит вам в течение 5 минут для бесплатной консультации!</span>
+            </div>
+            <div class="feedback-form">
+                <form action="">
+                    <div class="feedback-form__grid">
+                        <div class="feedback-form__left">
+                            <div class="feedback-form__group">
+                                <div class="feedback-form__item">
+                                    <input type="text" name="name" placeholder="Имя*" />
+                                </div>
+                                <div class="feedback-form__item">
+                                    <input type="text" name="name" placeholder="Телефон*" data-mask="+7 (999) 999-99-99" />
+                                </div>
+                            </div>
+                            <div class="feedback-form__textarea">
+                                <textarea name="message" placeholder="Сообщение"></textarea>
+                            </div>
+                        </div>
+                        <div class="feedback-form__right">
+                            <div class="feedback-form__button">
+                                <button class="btn btn-o">Заказать звонок</button>
+                            </div>
+                            <div class="feedback-form__bottom">
+                                <div class="feedback-form__police">
+                                    Нажимая на кнопку, вы даете согласие на обработку персональных данных в соответствии с
+                                    <a href="#">Политикой Конфиденциальности</a>
+                                </div>
+                                <div class="feedback-social">
+                                    <div class="feedback-social__text">
+                                        или свяжитесь с нами
+                                        в мессенджерах
+                                    </div>
+                                    <div class="feedback-social__icons">
+                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#telegram"></use></svg></a>
+                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#vk"></use></svg></a>
+                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#viber"></use></svg></a>
+                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#whatsapp"></use></svg></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container phablet-container">
+        <div class="footer__grid footer__grid--desktop">
+            <div class="footer__logo">
+                <img src="/assets/template/images/logo-dark.png" alt="">
+            </div>
+            <div class="footer__slogan">
+                Вывоз мусора<br />
+                в Санкт-Петербурге<br />
+                и Ленинградской области
+            </div>
+            <div class="footer__phones">
+                <div class="footer-phone">
+                    <a href="tel:8 (812) 920-38-54">8 (812) 920-38-54</a>
+                </div>
+                <div class="footer-worktime">с 8.00 до 22.30</div>
+            </div>
+            <div class="footer__emails">
+                <div class="footer-email">
+                    <a href="mailto:zakaz@hlamknam.ru">zakaz@hlamknam.ru</a>
+                </div>
+                <div class="footer-email__hint">круглосуточно</div>
+            </div>
+            <div class="footer__menu">
+                <ul class="footer-nav">
+                    <li><a href="#">Вывоз мусора</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Автопарк</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Сотрудничество</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Купить б/у бытовую технику</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="phablet-container__inside">
+            <div class="footer__grid footer__grid--mobile">
+                <div class="footer__logo">
+                    <img src="/assets/template/images/logo-dark.png" alt="">
+                </div>
+                <div class="footer__contacts">
+                    <div class="footer-phone">
+                        <a href="tel:8 (812) 920-38-54">8 (812) 920-38-54</a>
+                    </div>
+                    <div class="footer-email">
+                        <a href="mailto:zakaz@hlamknam.ru">zakaz@hlamknam.ru</a>
+                    </div>
+                </div>
+                <div class="footer__worktimes">
+                    <div class="footer-worktime">с 8.00 до 22.30</div>
+                    <div class="footer-email__hint">круглосуточно</div>
+                </div>
+            </div>
+        </div>
+        <div class="phablet-container__inside footer-menu__box">
+            <div class="footer-menu">
+                <ul class="footer-menu__left">
+                    <li><a href="#">Вывоз мусора</a></li>
+                    <li><a href="#">Бесплатный вывоз</a></li>
+                    <li><a href="#">Грузоперевозки</a></li>
+                    <li><a href="#">Дополнительные услуги</a></li>
+                    <li><a href="#">Стоимость услуг</a></li>
+                </ul>
+                <ul class="footer-menu__right">
+                    <li><a href="#">Автопарк</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Сотрудничество</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Купить б/у бытовую технику</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-line">
+    <div class="container phablet-container">
+        <div class="bottom-line__grid">
+            <div class="bottom-line__left">
+                <ul class="bottom-line__nav">
+                    <li>Все права защищены 2010 - 2020</li>
+                    <li><a href="#">Карта сайта</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+            <div class="bottom-line__right">
+                <div class="bottom-line__dev">
+                    Разработка сайта: <a href="#">Creative-Lab</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom-line-mobile">
+    <div class="container">
+        <div class="bottom-line-mobile__left">
+            Все права защищены 2010 - 2020
+            <ul class="bottom-line-mobile__nav">
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Карта сайта</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bottom-line-mobile bottom-line-mobile--gray">
+    <div class="container">
+        <div class="bottom-line-mobile__right">
+            <div class="bottom-line-mobile__dev">
+                Разработка сайта: <a href="#">Creative-Lab</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/assets/template/vendor/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="/assets/template/vendor/slick/slick-theme.css"/>
+<link rel="stylesheet" href="/assets/template/vendor/fancybox/jquery.fancybox.min.css" />
+<link href="/assets/template/vendor/formstyler/jquery.formstyler.css" rel="stylesheet" />
+<link href="/assets/template/vendor/formstyler/jquery.formstyler.theme.css" rel="stylesheet" />
+
+<script src="/assets/template/vendor/jquery-3.2.1.min.js"></script>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/template/vendor/formstyler/jquery.formstyler.min.js"></script>
+
+<script src="/assets/template/vendor/jquery.inputmask.bundle.js"></script>
+<script src="/assets/template/vendor/owlcarousel/owl.carousel.js"></script>
+<script src="assets/template/vendor/fancybox/jquery.fancybox.min.js"></script>
+<script src="/assets/template/js/scripts.js"></script>
+
+</body>
+</html>
+
+<div class="bp-larger-than">
+    <div class="bp-larger-than-first">
+        
+    </div>
+    <div class="bp-larger-than-iphone5">
+        @media ($bp-larger-than-iphone5) {}
+    </div>
+    <div class="bp-larger-than-iphone6">
+        @media ($bp-larger-than-iphone6) {}
+    </div>
+    <div class="bp-larger-than-mobile">
+        @media ($bp-larger-than-mobile) {}
+    </div>
+    <div class="bp-larger-than-phablet">
+        @media ($bp-larger-than-phablet) {}
+    </div>
+    <div class="bp-larger-than-tablet">
+        @media ($bp-larger-than-tablet) {}
+    </div>
+    <div class="bp-larger-than-desktop">
+        @media ($bp-larger-than-desktop) {}
+    </div>
+    <div class="bp-larger-than-desktophd">
+        @media ($bp-larger-than-desktophd) {}
+    </div>
+    <div class="bp-larger-than-note">
+        @media ($bp-larger-than-note) {}
+    </div>
+    <div class="bp-larger-than-desktopfullhd">
+        @media ($bp-larger-than-desktopfullhd) {}
+    </div>
+    <div class="now-width__wrap">width: <span class="now-width"></span>px</div>
+</div>
+<script>
+    (setWidth = function() {
+        var width = jQuery(window).width();
+        jQuery('.now-width').text(width);
+    })();
+    jQuery(window).resize(function(){
+        setWidth();
+    });
+</script>

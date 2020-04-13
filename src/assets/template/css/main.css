@@ -571,6 +571,9 @@ textarea {
 .section-gray {
   background-color: #F2F2F2; }
 
+.section-orange {
+  background-color: #F68764; }
+
 .topline {
   background: #ACACAC; }
   .topline__grid {
@@ -2740,3 +2743,68 @@ body.fix-header {
 .page-text {
   padding-top: 7px;
   padding-bottom: 15px; }
+
+.catalog {
+  padding: 13px 0; }
+  .catalog__grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    justify-content: center; }
+    @media (min-width: 1000px) {
+      .catalog__grid {
+        justify-content: flex-start; } }
+  .catalog__item {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px; }
+  .catalog .section-header {
+    font-size: 18px;
+    line-height: 21px; }
+
+.autopark {
+  padding: 18px 0 25px; }
+  @media (min-width: 550px) {
+    .autopark {
+      padding: 18px 0 33px; } }
+  .autopark__text {
+    margin-bottom: 30px; }
+    @media (min-width: 550px) {
+      .autopark__text {
+        margin-bottom: 35px; } }
+    .autopark__text p {
+      line-height: 114%;
+      text-align: justify; }
+
+.autos-park__grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  justify-content: center; }
+
+.autos-park_item {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px; }
+
+.text p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: justify;
+  color: #2C2C2C; }
+
+.text ul li {
+  list-style-type: square;
+  color: #EF5C2E;
+  width: 10px;
+  height: 10px; }
+
+.text__num li {
+  list-style: decimal;
+  color: #EF5C2E;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px; }

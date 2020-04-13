@@ -1,0 +1,30 @@
+.autopark{
+  padding: 18px 0 25px;
+  @media ($bp-larger-than-phablet) {
+    padding: 18px 0 33px;
+  }
+  &__text{
+    margin-bottom: 30px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 35px;
+    }
+    p{
+      line-height: 114%;
+      text-align: justify;
+    }
+  }
+}
+.autos-park{
+  &__grid{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    justify-content: center;
+  }
+  &_item{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+  }
+}
