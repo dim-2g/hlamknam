@@ -7,9 +7,15 @@ $(function() {
     });
     //сворачивание мобильного меню
     $('.toggle-menu').on('click', function () {
-        $('.mobile-menu').slideToggle();
-        $(this).toggleClass('active');
+        if ($('body').hasClass('show-slide-menu')) {
+            $('.mobile-menu').slideDown();
+            $('body').removeClass('show-slide-menu')
+        } else {
+            $('.mobile-menu').slideUp();
+            $('body').addClass('show-slide-menu')
+        }
     });
+
     //плавный переход по контенту
     $('body').on('click', '[data-goto]', function(e) {
         e.preventDefault();
@@ -72,12 +78,6 @@ $(function() {
             });
         }
         //$(this).toggleClass('active');
-    })
-
-    //показ мобильного меню
-    $('.toggle-menu').on('click', function (e) {
-        e.preventDefault();
-        $('body').toggleClass('show-slide-menu');
     });
 
     $('select.styler').styler();

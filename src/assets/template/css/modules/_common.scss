@@ -355,9 +355,94 @@ body{
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  > li {
+    & > a{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover{
+        text-shadow: 0px 0px #fff;
+      }
+    }
+  }
   li{
     margin: 0;
     padding: 0;
+    position: relative;
+    &.has-child{
+      & > a{
+        padding-right: 20px;
+        &:after{
+          content: "";
+          display: inline-block;
+          @include sprite($has-child);
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: -3px;
+        }
+      }
+      &:hover{
+        & > ul {
+          display: block;
+        }
+      }
+    }
+    ul{
+      display: none;
+      position: absolute;
+      left: -38px;
+      top: 100%;
+      width: 234px;
+      background: #FFFFFF;
+      border: 1px solid #C4C4C4;
+      box-sizing: border-box;
+      list-style-type: none;
+      margin: 0;
+      padding: 20px 0 9px 20px;
+      li{
+        margin-bottom: 6px;
+      }
+      a{
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 22px;
+        color: #2C2C2C;
+        text-decoration: none;
+        &:hover{
+          text-decoration: none;
+          color: $orange;
+        }
+      }
+      > li {
+        & > a{
+          padding-right: 5px;
+          position: relative;
+          display: flex;
+          text-align: left;
+          line-height: 115%;
+        }
+        &.has-child{
+          & > a{
+            &:hover{
+              &:after{
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: 5px;
+                top: 6px;
+                @include sprite($has-child-submenu);
+              }
+            }
+          }
+        }
+        & > ul {
+          left: 100%;
+          top: -21px;
+        }
+      }
+    }
   }
   a{
     color: #fff;
@@ -367,7 +452,36 @@ body{
     font-size: 16px;
     line-height: 19px;
     text-align: center;
+    position: relative;
   }
+}
+
+
+.mobile-menu{
+  display: none;
+  background: #F2F2F2;
+  &__list{
+    margin: 0;
+    padding: 15px 0;
+    list-style-type: none;
+    li{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      display: flex;
+      width: 100%;
+      height: 36px;
+      align-items: center;
+      font-size: 18px;
+      color: #2c2c2c;
+      padding: 3px 20px;
+
+    }
+  }
+}
+body.show-slide-menu{
+
 }
 
 .footer{

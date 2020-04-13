@@ -1,23 +1,21 @@
 .catalog{
-  padding: 13px 0;
+  padding: 24px 0 15px;
   &__grid{
     display: flex;
     flex-wrap: wrap;
     margin-left: -10px;
     margin-right: -10px;
     justify-content: center;
+    margin-top: 25px;
     @media ($bp-larger-than-desktop) {
       justify-content: flex-start;
     }
+  }
+  &__box{
   }
   &__item{
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 20px;
   }
-  .section-header{
-    font-size: 18px;
-    line-height: 21px;
-  }
-
 }
