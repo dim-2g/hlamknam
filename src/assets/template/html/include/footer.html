@@ -282,15 +282,15 @@
 
 </div>
 
+<!-- @if NODE_ENV='development' -->
 <link rel="stylesheet" href="/assets/template/vendor/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="/assets/template/vendor/slick/slick-theme.css"/>
 <link rel="stylesheet" href="/assets/template/vendor/fancybox/jquery.fancybox.min.css" />
 <link href="/assets/template/vendor/formstyler/jquery.formstyler.css" rel="stylesheet" />
 <link href="/assets/template/vendor/formstyler/jquery.formstyler.theme.css" rel="stylesheet" />
-
+<!-- @endif -->
+<!-- @if NODE_ENV='development' -->
 <script src="/assets/template/vendor/jquery-3.2.1.min.js"></script>
-
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/template/vendor/formstyler/jquery.formstyler.min.js"></script>
 
@@ -299,6 +299,9 @@
 <script src="assets/template/vendor/fancybox/jquery.fancybox.min.js"></script>
 <script src="/assets/template/js/scripts.js"></script>
 <script src="https://icomoon.io/svgxuse-demo/bower_components/svgxuse/svgxuse.js"></script>
-
+<!-- @endif -->
+<!-- @if NODE_ENV='production' -->
+<script src="/assets/template/js/all.js"></script>
+<!-- @endif -->
 </body>
 </html>

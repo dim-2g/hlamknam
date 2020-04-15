@@ -1,106 +1,163 @@
 'use strict';
 
-// Подключение плагинов
-var gulp = require('gulp'),
-    gulpsync = require('gulp-sync')(gulp),
-    clean = require('gulp-clean'),
-    sass = require('gulp-sass'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rjs = require('gulp-requirejs'),
-    //uglify = require('gulp-uglify'),
-    uglify = require('gulp-uglify-es').default,
-    concat = require('gulp-concat'),
-    copy = require('gulp-contrib-copy'),
-    preprocess = require('gulp-preprocess'),
-    watch = require('gulp-watch'),
-    browserSync = require('browser-sync'),
-    imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
-    spritesmith = require('gulp.spritesmith'),
-    merge = require('merge-stream'),
-    livereload = require('gulp-livereload'),
-    rename = require('gulp-rename'),
-    rigger = require('gulp-rigger'),
-    plumber = require('gulp-plumber'),
-    svgSprite = require('gulp-svg-sprite'),
-    svgmin = require('gulp-svgmin'),
-    cheerio                = require('gulp-cheerio'),
-    replace                = require('gulp-replace');
+var gulp        		   = require('gulp'),
+	concat      		   = require('gulp-concat'),
+	prefixer    		   = require('gulp-autoprefixer'),
+	uglify      		   = require('gulp-uglify'),
+	sass        		   = require('gulp-sass'),
+	sourcemaps  		   = require('gulp-sourcemaps'),
+	rigger      		   = require('gulp-rigger'),
+	cleanCss    		   = require('gulp-clean-css'),
+	imagemin    		   = require('gulp-imagemin'),
+	pngquant    		   = require('imagemin-pngquant'),
+	svgSprite 			   = require('gulp-svg-sprite'),
+	svgmin 				   = require('gulp-svgmin'),
+	rimraf      		   = require('rimraf'),
+	replace     		   = require('gulp-replace'),
+	browserSync 		   = require("browser-sync").create(),
+	del 	    		   = require("del"),
+	cache 	    		   = require("gulp-cache"),
+	cheerio 			   = require('gulp-cheerio'),
+	imageminJpegRecompress = require('imagemin-jpeg-recompress'),
+	preprocess 			   = require('gulp-preprocess'),
+	rename 				   = require('gulp-rename'),
+	merge 				   = require('merge-stream'),
+	spritesmith 		   = require('gulp.spritesmith');
 
-// Пути для сборки
+
 var path = {
-    build: {
-        root: 'public/',
-        js: 'public/assets/template/js/',
-        rjs: 'build.js',
-        css: 'public/assets/template/css/',
-        img: 'public/assets/template/img/',
-        sprites: 'public/assets/template/img/sprites/',
-        spritescustom: 'public/assets/template/img/sprites_custom/',
+	//папка куда складываются готовые файлы
+    build: { 
+        html: 'build/',
+        js: 'build/assets/template/js/',
+        css: 'build/assets/template/css/',
+        img: 'build/assets/template/images/',
+        fonts: 'build/assets/template/fonts/',
+		spritepng: 'build/assets/template/css/sprites/',
     },
+    //папка откуда брать файлы
     src: {
-        root: 'src/',
-        html: 'src/assets/template/html/**/*.html',
-        js: 'src/assets/template/js/**/*.js',
-        rjs: 'src/assets/template/js/',
-        scripts: 'src/assets/template/scripts/**/*.js',
-        sass: 'src/assets/template/css/*.scss',
-        css: 'src/assets/template/css/',
-        img: 'src/assets/template/img/**/*.*',
-        requirejsLib: 'src/assets/template/lib/require.js',
-        lib: '../lib/',
-        tpl: '../tpl/',
-        sprites: 'src/assets/template/sprites/*.*',
-        spritesvg: 'src/assets/template/spritesvg/**/*.svg',
-        spritescustom: 'src/assets/template/sprites_custom/*.*',
+		root: 'src/',
+        html: 'src/assets/template/html/*.html',
+        js: [
+        'src/assets/template/vendor/jquery-3.2.1.min.js', 
+        'src/assets/template/vendor/formstyler/jquery.formstyler.min.js', 
+        'src/assets/template/vendor/jquery.inputmask.bundle.js',
+        'src/assets/template/vendor/owlcarousel/owl.carousel.js',
+        'src/assets/template/vendor/fancybox/jquery.fancybox.min.js',
+        'src/assets/template/js/scripts.js',
+        ],
+        style: 'src/assets/template/css/*.scss',
+		css_file: 'src/assets/template/css/',
+        css: [
+        	'src/assets/template/vendor/owlcarousel/owl.carousel.css',
+			'src/assets/template/vendor/owlcarousel/owl.theme.default.css',
+			'src/assets/template/vendor/slick/slick.css',
+			'src/assets/template/vendor/slick/slick-theme.css',
+			'src/assets/template/vendor/fancybox/jquery.fancybox.min.css',
+			'src/assets/template/vendor/formstyler/jquery.formstyler.css',
+			'src/assets/template/vendor/formstyler/jquery.formstyler.theme.css',
+        	'src/assets/template/css/main.css',
+		],
+        img: 'src/assets/template/images/**/*.*',
+		spritepng: 'src/assets/template/css/sprites/sprite.png',
+		sprites: 'src/assets/template/sprites/*.*',
+        fonts: 'src/assets/template/fonts/**/*.*'
+
     },
-    dev: {
-        sprites: 'src/assets/template/css/sprites/',
-        spritescustom: 'src/assets/template/css/sprites/',
+	dev: {
+		sprites: 'src/assets/template/css/sprites/',
+		spritescustom: 'src/assets/template/css/sprites/',
+	},
+    //указываем после измененя каких файлов нужно действовать
+    watch: { 
+        html: 'src/assets/template/html/*.html',
+        js: 'src/js/**/*.js',
+        style: 'src/assets/template/css/**/*.scss',
+        css: 'src/css/**/*.css',
+        img: 'src/img/**/*.*',
+        svg: 'src/img/sprite/**/*.svg',
+        fonts: 'src/fonts/**/*.*',
+		sprites: 'src/assets/template/sprites/*.*'
     },
-    watch: {
-        html: 'src/assets/template/html/**/*.html',
-        sass: 'src/assets/template/css/**/*.scss',
-        sassd: 'src/assets/template/css/*.scss',
-        js: 'src/assets/template/js/**/*.js',
-        tpl: 'src/assets/template/tpl/**/*.html',
-        sprites: 'src/assets/template/sprites/*.*',
-        spritescustom: 'src/assets/template/sprites_custom/*.*',
-        spritesvg: 'src/assets/template/spritesvg/*.*',
-    },
-    clean: ['public', 'src/assets/template/css/main.css', 'src/assets/template/css/sprites/', 'src/assets/template/css/sprites_custom/', 'src/assets/template/*.html']
+    clean: './build'
 };
 
-// Конфиги для локального вебсервера
-var webserver = {
-    dev: {
-        server: {
-            baseDir: './src'
-        },
-        tunnel: false,
-        host: 'localhost',
-        port: 9001,
-        logPrefix: 'app_dev'
+var config = {
+    server: {
+        baseDir: "./build" //из какой папки показывать
     },
-    prod: {
-        server: {
-            baseDir: './public'
-        },
-        tunnel: true,
-        host: 'localhost',
-        port: 9002,
-        logPrefix: 'app_prod'
-    }
+    tunnel: false,
+    host: 'localhost', 
+    port: 9002,
+    open: true,
+    notify: false,
+    logPrefix: "gl"
 };
 
-gulp.task('sprite-dis', function() {
-    return gulp.src(path.src.spritesvg)
+var config_dev = {
+	server: {
+		baseDir: "./src" //из какой папки показывать
+	},
+	tunnel: false,
+	host: 'localhost',
+	port: 9001,
+	open: true,
+	notify: false,
+	logPrefix: "app_dev"
+};
+
+
+
+function fonts(){
+	return gulp.src(path.src.fonts)
+				.pipe(gulp.dest(path.build.fonts));			
+}
+
+function images(){
+	return gulp.src(path.src.img)
+				.pipe(cache(imagemin([
+			      imagemin.gifsicle({interlaced: true}),
+			      imagemin.jpegtran({progressive: true}),
+			      imageminJpegRecompress({
+			        loops: 5,
+			        min: 65,
+			        max: 70,
+			        quality:'medium'
+			      }),
+			      imagemin.svgo({
+			      	plugins: [
+				      	{cleanupIDs: false},
+					    {removeUselessDefs: false},
+					    {removeViewBox: true},
+				    ]
+			      }),
+			      imagemin.optipng({optimizationLevel: 3}),
+			      pngquant({quality: '65-70', speed: 5})
+			    ],{
+			      verbose: true
+			    })))
+				.pipe(gulp.dest(path.build.img))
+				.pipe(browserSync.reload({stream: true}));
+}
+function copySprite(){
+	return gulp.src(path.src.spritepng)
+		.pipe(cache(imagemin([
+			imagemin.optipng({optimizationLevel: 3}),
+			pngquant({quality: '65-70', speed: 5})
+		],{
+			verbose: true
+		})))
+		.pipe(gulp.dest(path.build.spritepng));
+}
+
+function sprite(){
+    return gulp.src('src/img/sprite/**/*.svg')
         .pipe(svgmin({
             js2svg: {
                 pretty: true
             }
         }))
-        /*
         .pipe(cheerio({
             run: function ($) {
                 $('[fill]').removeAttr('fill');
@@ -109,7 +166,6 @@ gulp.task('sprite-dis', function() {
             },
             parserOptions: {xmlMode: true}
         }))
-        */
         .pipe(replace('&gt;', '>'))
         .pipe(svgSprite({
             shape: {
@@ -122,289 +178,150 @@ gulp.task('sprite-dis', function() {
             }
         }))
         
-        .pipe(gulp.dest(path.dev.sprites))
+        .pipe(gulp.dest('src/img'))
         
-});
-
-// Очистка папок и файлов
-gulp.task('clean', function() {
-    return gulp.src(path.clean, {read: false})
-        .pipe(clean());
-});
-
-// Компиляция sass, сборка стилей
-// development
-gulp.task('sass:dev', function() {
-    return gulp.src(path.src.sass)
-        .pipe(plumber())
-        //.pipe(sourcemaps.init())
-        .pipe(sass())
-        //.pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.src.css))
-        .pipe(browserSync.reload({stream: true}));
-});
-
-gulp.task('sass:dev2', function() {
-    return gulp.src(path.src.sass)
-        .pipe(plumber())
-        //.pipe(sourcemaps.init())
-        .pipe(sass())
-        //.pipe(sourcemaps.write())
-        //.pipe(sass({outputStyle: 'compressed'}))
-        //.pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.src.css))
-        .pipe(browserSync.reload({stream: true}));
-});
-
-// production
-gulp.task('sass:prod', ['sprite:prod'], function() {
-    return gulp.src(path.src.sass)
-        .pipe(sass())
-        //сохраняем в css
-        .pipe(gulp.dest(path.build.css))
-        .pipe(sass({outputStyle: 'compressed'}))
-        .pipe(rename({suffix: '.min'}))
-        //сохраняем и минифицированную версию
-        .pipe(gulp.dest(path.build.css));
-});
-
-// Сборка requirejs
-gulp.task('requirejs:build', function() {
-    rjs({
-        baseUrl: path.src.rjs,
-        name: 'main',
-        out: path.build.rjs,
-        paths: {
-            jquery: path.src.lib + 'jquery',
-            lodash: path.src.lib + 'lodash',
-            backbone: path.src.lib + 'backbone',
-            text: path.src.lib + 'text',
-            tpl: path.src.tpl
-        },
-        shim: {
-            lodash: {
-                exports: '_'
-            },
-            backbone: {
-                deps: [
-                    'lodash',
-                    'jquery'
-                ],
-                exports: 'Backbone'
-            }
-        },
-        map: {
-            '*': {
-                'underscore': 'lodash'
-            }
-        }
-    })
-        .pipe(uglify())
-        .pipe(gulp.dest(path.build.js));
-});
-
-// Копирование библиотеки require.js для production
-gulp.task('requirejs:copy_lib', function() {
-    gulp.src(path.src.requirejsLib)
-        .pipe(copy())
-        .pipe(uglify())
-        .pipe(gulp.dest(path.build.js));
-});
-
-// Оптимизация изображений
-gulp.task('img', function () {
-    gulp.src(path.src.img)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
-        .pipe(gulp.dest(path.build.img));
-});
-
-// Склеивание сторонних скриптов
-gulp.task('scripts', function() {
-    return gulp.src(path.src.scripts)
-        .pipe(concat('scripts.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest(path.build.js));
-});
-
-// Препроцессинг html
-// development
-gulp.task('html:dev', function() {
-    gulp.src(path.src.html)
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(preprocess({context: {NODE_ENV: 'development', DEBUG: true}}))
-        .pipe(gulp.dest(path.src.root))
-        .pipe(browserSync.reload({stream: true}));
-});
-
-// production
-gulp.task('html:prod', function() {
-    gulp.src(path.src.html)
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(preprocess({context: {NODE_ENV: 'production', DEBUG: true}}))
-        .pipe(gulp.dest(path.build.root))
-});
-
-gulp.task('sprite:dev', function () {
-  var spriteData = gulp.src(path.src.sprites).pipe(spritesmith({
-    imgName: 'sprite.png',
-    imgPath: '/assets/template/css/sprites/sprite.png',
-    cssName: 'sprite.scss'
-  }));
-  var imgStream = spriteData.img
-    //.pipe(buffer())
-    //.pipe(imagemin())
-    .pipe(gulp.dest(path.dev.sprites));
-
-  var cssStream = spriteData.css
-    //.pipe(csso())
-    .pipe(gulp.dest(path.dev.sprites));
-  return merge(imgStream, cssStream);
-  //return spriteData.pipe(gulp.dest(path.tmp.sprites));
-});
-
-gulp.task('spritecustom:dev', function () {
-    var spriteData = gulp.src(path.src.spritescustom).pipe(spritesmith({
-      imgName: 'sprite_custom.png',
-      imgPath: '/assets/template/css/sprites/sprite_custom.png',
-      cssName: 'sprite_custom.scss'
-    }));
-    var imgStream = spriteData.img.pipe(gulp.dest(path.dev.spritescustom));
-    var cssStream = spriteData.css.pipe(gulp.dest(path.dev.spritescustom));
-    return merge(imgStream, cssStream);
-});
-
-gulp.task('sprite:prod', function () {
-  var spriteData = gulp.src(path.src.sprites).pipe(spritesmith({
-    imgName: 'sprite.png',
-    imgPath: '/assets/template/img/sprites/sprite.png',
-    cssName: 'sprite.scss'
-  }));
-  var imgStream = spriteData.img
-    //.pipe(buffer())
-    //.pipe(imagemin())
-    .pipe(gulp.dest(path.build.sprites));
-
-  var cssStream = spriteData.css
-    //.pipe(csso())
-    .pipe(gulp.dest(path.dev.sprites));
-  return merge(imgStream, cssStream);
-  //return spriteData.pipe(gulp.dest(path.tmp.sprites));
-});
+}
 
 
+function html(){
+	return gulp.src(path.src.html)
+				.pipe(rigger())
+				.pipe(preprocess({context: {NODE_ENV: 'production', DEBUG: true}}))
+				.pipe(gulp.dest(path.build.html));
+				//.pipe(browserSync.reload({stream: true}));
+}
 
-// watch-таска
-gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('html:dev');
-    });
-    watch([path.watch.sass], function(event, cb) {
-        gulp.start('sass:dev');
-    });
-    watch([path.watch.sassd], function(event, cb) {
-        gulp.start('sass:dev');
-    });
-    /*
-    watch([path.watch.sprites], function(event, cb) {
-        gulp.start('sprite:dev');
-    });
-    */
-    //watch([path.watch.js, path.watch.tpl]).on('change', browserSync.reload);
-});
+function html_dev(){
+	return gulp.src(path.src.html)
+		.pipe(rigger())
+		.pipe(preprocess({context: {NODE_ENV: 'development', DEBUG: true}}))
+		.pipe(gulp.dest(path.src.root));
+	//.pipe(browserSync.reload({stream: true}));
+}
 
-gulp.task('watch2', function(){
-    watch([path.watch.html], function(event, cb) {
-        gulp.start('html:dev');
-    });
-    watch([path.watch.sass], function(event, cb) {
-        gulp.start('sass:dev2');
-    });
-    watch([path.watch.sassd], function(event, cb) {
-        gulp.start('sass:dev2');
-    });
-    watch([path.watch.sprites], function(event, cb) {
-        gulp.start('sprite:dev');
-    });
-    watch([path.watch.spritesvg], function(event, cb) {
-        gulp.start('sprite');
-    });
-    //watch([path.watch.js, path.watch.tpl]).on('change', browserSync.reload);
-});
+function styles(){
+	return gulp.src(path.src.style)
+				//.pipe(sourcemaps.init())
+				.pipe(sass())
+				.pipe(prefixer({ 
+				    cascade: false
+				})) 
+				.pipe(cleanCss({
+					level: 2
+				}))
+				//.pipe(concat("app.css"))
+				.pipe(concat("main.css"))
+				// .pipe(sourcemaps.write())
+				.pipe(gulp.dest(path.src.css_file))
+				.pipe(browserSync.reload({stream: true}));
+}
 
-// Запуск локального веб-сервера
-// development
-gulp.task('webserver:dev', function () {
-    browserSync(webserver.dev);
-});
+function scss(){
+	return gulp.src(path.src.style)
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(prefixer({
+			cascade: false
+		}))
+		//.pipe(concat("main.css"))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(path.src.css_file))
+		.pipe(browserSync.reload({stream: true}));
+}
 
-// production
+function css(){
+	return gulp.src(path.src.css)
+
+				.pipe(gulp.dest(path.build.css))
+				.pipe(browserSync.reload({stream: true}));
+}
+
+function cssProduction(){
+	return gulp.src(path.src.css)
+		.pipe(prefixer({
+			cascade: false
+		}))
+		.pipe(cleanCss({
+			level: 2
+		}))
+		.pipe(concat("app.min.css"))
+		//.pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest(path.build.css));
+}
+
+function scripts(){
+	return gulp.src(path.src.js) 
+				.pipe(rigger()) 
+				.pipe(sourcemaps.init()) 
+				.pipe(concat('all.js'))
+				.pipe(uglify()) 
+				.pipe(gulp.dest(path.build.js));
+				//.pipe(browserSync.reload({stream: true}));
+}
+
+function spritePng() {
+	var spriteData = gulp.src(path.src.sprites).pipe(spritesmith({
+		imgName: 'sprite.png',
+		imgPath: '/assets/template/css/sprites/sprite.png',
+		cssName: 'sprite.scss'
+	}));
+	var imgStream = spriteData.img
+		.pipe(gulp.dest(path.dev.sprites));
+
+	var cssStream = spriteData.css
+		.pipe(gulp.dest(path.dev.sprites));
+	return merge(imgStream, cssStream);
+}
+
+function watch(){
+	browserSync.init(config)
+	gulp.watch(path.watch.style, styles);
+	gulp.watch(path.watch.css, css);
+	gulp.watch(path.watch.js, scripts);
+	gulp.watch(path.watch.html, html);
+	gulp.watch(path.watch.fonts, fonts);
+	gulp.watch(path.watch.img, images);
+	gulp.watch(path.watch.svg, sprite);
+}
+
+function watch_dev(){
+	browserSync.init(config_dev)
+	gulp.watch(path.watch.sprites, spritePng);
+	gulp.watch(path.watch.style, styles);
+	gulp.watch(path.watch.html, html_dev);
+}
+
+function clean(){
+	return del(['build/*']);
+}
+
+gulp.task('fonts', fonts);
+gulp.task('sprite', sprite);
+gulp.task('images', images);
+gulp.task('html', html);
+gulp.task('styles', styles);
+gulp.task('css', css);
+gulp.task('css_prod', cssProduction);
+gulp.task('scripts', scripts);
+gulp.task('watch', watch);
+gulp.task('clean', clean);
+gulp.task('copy_sprite', copySprite);
+gulp.task('sprite_png', spritePng);
+gulp.task('html_dev', html_dev);
+gulp.task('watch_dev', watch_dev);
+gulp.task('scss', scss);
+
 gulp.task('webserver:prod', function () {
-    browserSync(webserver.prod);
+	browserSync.init(config)
 });
 
-gulp.task('js', function () {
-    return gulp.src([
-        'src/assets/template/vendor/jquery-3.2.1.min.js', 
-        'src/assets/template/vendor/slick/slick.js',
-        'src/assets/template/vendor/jquery.inputmask.bundle.js',
-        'src/assets/template/vendor/fancybox/jquery.fancybox.min.js',
-        ])
-        .pipe(uglify())
-        .pipe(concat('build.js'))
-        .pipe(gulp.dest('src/assets/template/vendor/'));
-});
+gulp.task('build', gulp.series(
+	clean,
+	spritePng,
+	styles,
+	gulp.parallel( cssProduction, copySprite, scripts, html, images, fonts),
+	'webserver:prod'
+));
 
-gulp.task('css', function () {
-    return gulp.src([
-        'src/assets/template/vendor/slick/slick.css', 
-        'src/assets/template/vendor/owlcarousel/owl.carousel.min.css',
-        'src/assets/template/vendor/owlcarousel/owl.theme.default.min.css',
-        'src/assets/template/vendor/slick/slick-theme.css',
-        'src/assets/template/vendor/fancybox/jquery.fancybox.min.css',
-        ])
-        .pipe(concat('build.css'))
-        .pipe(gulp.dest('src/assets/template/vendor/'));
-});
+gulp.task('dev', gulp.series(spritePng, scss, html_dev, watch_dev));
 
-gulp.task('develop', gulpsync.sync([
-    //'spritecustom:dev',
-    'sprite:dev',
-    [
-        'html:dev',
-        'sass:dev'
-    ],
-    'watch2',
-    'webserver:dev'
-]));
-
-gulp.task('develop2', gulpsync.sync([
-    //'spritecustom:dev',
-    //'sprite',
-    'sprite:dev',
-    [
-        'html:dev',
-        'sass:dev2'
-    ],
-    'watch2',
-    'webserver:dev'
-]));
-
-// Режим production
-gulp.task('production', gulpsync.sync([
-    'clean',
-    [
-        'html:prod',
-        'sass:prod',
-        //'requirejs:build',
-        //'requirejs:copy_lib',
-        'img',
-        'scripts'
-    ],
-    'webserver:prod'
-
-]));
