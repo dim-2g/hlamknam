@@ -195,8 +195,8 @@ function html_dev(){
 	return gulp.src(path.src.html)
 		.pipe(rigger())
 		.pipe(preprocess({context: {NODE_ENV: 'development', DEBUG: true}}))
-		.pipe(gulp.dest(path.src.root));
-	//.pipe(browserSync.reload({stream: true}));
+		.pipe(gulp.dest(path.src.root))
+		.pipe(browserSync.reload({stream: true}));
 }
 
 function styles(){

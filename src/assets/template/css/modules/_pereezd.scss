@@ -50,8 +50,6 @@
 .steps-line{
   justify-content: space-between;
   position: relative;
-  margin-top: 39px;
-  margin-bottom: 40px;
   display: none;
   width: 100%;
   max-width: 100%;
@@ -59,16 +57,21 @@
   @media ($bp-larger-than-tablet) {
     display: flex;
   }
-  &:before{
-    display: inline-block;
-    content: "";
-    left: 75px;
-    right: 75px;
-    top: 19px;
-    position: absolute;
-    height: 1px;
-    background-color: #EF5C2E;
-    z-index: 1;
+  &__box{
+    margin-top: 39px;
+    margin-bottom: 40px;
+    position: relative;
+    &:before{
+      display: inline-block;
+      content: "";
+      left: 75px;
+      right: 75px;
+      top: 19px;
+      position: absolute;
+      height: 1px;
+      background-color: #EF5C2E;
+      z-index: 1;
+    }
   }
   &__item{
     width: 184px;
@@ -77,6 +80,9 @@
     padding-top: 48px;
     color: #2C2C2C;
     text-decoration: none;
+    zoom: 1;
+    display: block;
+    box-sizing: border-box;
     &:hover{
       color: #2C2C2C;
       text-decoration: none;
@@ -115,6 +121,7 @@
     font-size: 18px;
     line-height: 24px;
     text-align: center;
+    display: none;
   }
 }
 

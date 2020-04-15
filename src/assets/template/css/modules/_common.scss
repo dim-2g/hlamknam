@@ -207,6 +207,7 @@ body{
     justify-content: space-between;
     align-items: center;
     min-height: 55px;
+    height: 1px;
     @media ($bp-larger-than-phablet) {
       min-height: 100px;
     }
@@ -352,6 +353,7 @@ body{
   &__grid{
     height: 1px;
     min-height: 40px;
+    height: 1px;
     display: flex;
     align-items: center;
   }
@@ -550,6 +552,7 @@ body{
     justify-content: space-between;
     align-items: center;
     min-height: 111px;
+    height: 1px;
     &--desktop{
       display: none;
       @media ($bp-larger-than-tablet) {
@@ -562,6 +565,7 @@ body{
       margin-left: auto;
       margin-right: auto;
       min-height: auto;
+      height: 1px;
       padding-top: 16px;
       padding-bottom: 5px;
       @media ($bp-larger-than-tablet) {
