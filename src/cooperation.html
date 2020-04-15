@@ -29,7 +29,7 @@
             </div>
             <div class="topline__grid topline__grid--mobile">
                 <div class="topline-city">
-                    <svg class="topline-city__marker"><use xlink:href="/assets/template/css/sprites/sprite.svg#marker"></use></svg>
+                    <span class="topline-city__marker"></span>
                     <a href="#">Санкт-Петербург</a>
                 </div>
                 <ul class="topline-menu">
@@ -62,7 +62,7 @@
                     <div class="header-email__hint">круглосуточно</div>
                 </div>
                 <div class="header__callback">
-                    <a href="#" class="btn btn-o">Заказать звонок</a>
+                    <a class="btn btn-o" href="#callback" data-fancybox="">Заказать звонок</a>
                 </div>
                 <div class="header__burger toggle-menu">
                     <a href="#" class="burger">
@@ -335,10 +335,10 @@
                                         в мессенджерах
                                     </div>
                                     <div class="feedback-social__icons">
-                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#telegram"></use></svg></a>
-                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#vk"></use></svg></a>
-                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#viber"></use></svg></a>
-                                        <a href="#"><svg class="svg-icon feedback-social__icon"><use xlink:href="/assets/template/css/sprites/sprite.svg#whatsapp"></use></svg></a>
+                                        <a href="#" class="feedback-social__icon feedback-social__icon--telegram"></a>
+                                        <a href="#" class="feedback-social__icon feedback-social__icon--vk"></a>
+                                        <a href="#" class="feedback-social__icon feedback-social__icon--viber"></a>
+                                        <a href="#" class="feedback-social__icon feedback-social__icon--whatsapp"></a>
                                     </div>
                                 </div>
                             </div>
@@ -463,6 +463,176 @@
     </div>
 </div>
 
+<div style="display: none">
+
+    <div id="callback" class="popup-form">
+        <div class="section-header">Обратный звонок</div>
+        <div class="popup-form__item">
+            <input type="text" name="name" placeholder="Имя*">
+        </div>
+        <div class="popup-form__item">
+            <input type="text" name="phone" placeholder="Телефон*" data-mask="+7 (999) 999-99-99">
+        </div>
+        <div class="popup-form__item">
+            <select name="service" class="styler-popup-form" placeholder="Время звонка">
+                <option>с 10:00 до 12:00</option>
+                <option>с 12:00 до 16:00</option>
+                <option>с 16:00 до 21:00</option>
+            </select>
+        </div>
+        <div class="popup-form__item">
+            <button class="btn btn-o">Заказать звонок</button>
+        </div>
+        <div class="popup-form__police">
+            Нажимая на кнопку, вы даете согласие на обработку персональных данных в
+            соответствии с <a href="#">Политикой Конфиденциальности</a>
+        </div>
+    </div>
+
+    <div id="order" class="popup-form">
+        <div class="section-header">
+            Заказать
+            <div class="section-header__subheader">
+                квартирный переезд
+            </div>
+        </div>
+        <div class="popup-form__item">
+            <input type="text" name="name" placeholder="Имя*">
+        </div>
+        <div class="popup-form__item">
+            <input type="text" name="phone" placeholder="Телефон*" data-mask="+7 (999) 999-99-99">
+        </div>
+        <div class="popup-form__item">
+            <button class="btn btn-o">Заказать</button>
+        </div>
+        <div class="popup-form__police">
+            Нажимая на кнопку, вы даете согласие на обработку персональных данных в
+            соответствии с <a href="#">Политикой Конфиденциальности</a>
+        </div>
+    </div>
+
+    <div id="success" class="popup-form">
+        <div class="section-header">
+            Ваша заявка принята
+        </div>
+        <div class="popup-form__item">
+            <div class="success-text">
+                Наш специалист свяжется с вами в течение 5 минут (в рабочее время)
+                для бесплатной консультации.
+            </div>
+        </div>
+    </div>
+
+    <div id="quiz" class="quiz-panel popup-form" data-quiz-step="1">
+        <div class="section-header">Скидка 5 % на вывоз мусора</div>
+        <div class="quiz-panel__text">
+            Чтобы получить скидку, ответьте на несколько простых вопросов и введите свои контактные данные.
+        </div>
+        <div class="quiz-panel__nav">
+            <a href="#" data-quiz-index="1"></a>
+            <a href="#" data-quiz-index="2"></a>
+            <a href="#" data-quiz-index="3"></a>
+            <a href="#" data-quiz-index="4"></a>
+            <a href="#" data-quiz-index="5"></a>
+        </div>
+        <form action="">
+            <div class="quiz-panel__tabs">
+                <div class="quiz-panel__tab active" data-quiz-tab="1">
+                    <div class="quiz-panel__question">
+                        Какой объем мусора требуется вывезти?
+                    </div>
+                    <div class="quiz-panel__answers">
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> До 10 м3</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Больше 10 м3</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Не могу точно сказать</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-panel__tab" data-quiz-tab="2">
+                    <div class="quiz-panel__question">
+                        Второй вопрос
+                    </div>
+                    <div class="quiz-panel__answers">
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> 1111</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> 22222</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> 3333</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-panel__tab" data-quiz-tab="3">
+                    <div class="quiz-panel__question">
+                        Третий вопрос
+                    </div>
+                    <div class="quiz-panel__answers">
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Ответ 1 на третий</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Ответ 2 на третий</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Ответ 3 на третий</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-panel__tab" data-quiz-tab="4">
+                    <div class="quiz-panel__question">
+                        Какой объем мусора требуется вывезти?
+                    </div>
+                    <div class="quiz-panel__answers">
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> До 10 м3</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Больше 10 м3</label>
+                        </div>
+                        <div class="quiz-panel__input">
+                            <label><input type="checkbox" class="checkbox-styler" /> Не могу точно сказать</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-panel__tab" data-quiz-tab="5">
+                    <div class="popup-form__item">
+                        <input type="text" name="name" placeholder="Имя*">
+                    </div>
+                    <div class="popup-form__item">
+                        <input type="text" name="phone" placeholder="Телефон*" data-mask="+7 (999) 999-99-99">
+                    </div>
+                    <div class="popup-form__item">
+                        <select name="service" class="styler-popup-form" placeholder="Время звонка">
+                            <option>с 10:00 до 12:00</option>
+                            <option>с 12:00 до 16:00</option>
+                            <option>с 16:00 до 21:00</option>
+                        </select>
+                    </div>
+                    <div class="popup-form__item popup-form__button">
+                        <button class="btn btn-o">Заказать со скидкой</button>
+                    </div>
+                    <div class="popup-form__police">
+                        Нажимая на кнопку, вы даете согласие на обработку персональных данных в
+                        соответствии с <a href="#">Политикой Конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="quiz-panel__controls">
+            <a href="#" class="btn btn-o" data-quiz-nav="prev">Назад</a>
+            <a href="#" class="btn btn-o" data-quiz-nav="next">Вперед</a>
+        </div>
+    </div>
+
+</div>
+
 <link rel="stylesheet" href="/assets/template/vendor/slick/slick.css">
 <link rel="stylesheet" type="text/css" href="/assets/template/vendor/slick/slick-theme.css"/>
 <link rel="stylesheet" href="/assets/template/vendor/fancybox/jquery.fancybox.min.css" />
@@ -479,6 +649,7 @@
 <script src="/assets/template/vendor/owlcarousel/owl.carousel.js"></script>
 <script src="assets/template/vendor/fancybox/jquery.fancybox.min.js"></script>
 <script src="/assets/template/js/scripts.js"></script>
+<script src="https://icomoon.io/svgxuse-demo/bower_components/svgxuse/svgxuse.js"></script>
 
 </body>
 </html>

@@ -1,11 +1,18 @@
 .contacts{
+  padding-top: 11px;
+  .section-header{
+    margin-bottom: 8px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 20px;
+    }
+  }
   &__grid{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
-    margin-top: 26px;
     @media ($bp-larger-than-phablet) {
+      margin-top: 26px;
       justify-content: space-around;
     }
     @media ($bp-larger-than-desktop) {

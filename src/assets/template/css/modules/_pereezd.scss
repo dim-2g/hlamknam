@@ -567,6 +567,45 @@
   }
   &__icons{
     text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  &__icon{
+    border: 2px solid #C4C4C4;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    margin-right: 14px;
+    align-items: center;
+    justify-content: center;
+    &:last-child{
+      margin-right: 0;
+    }
+    &:before{
+      display: inline-block;
+      content: "";
+    }
+    &--telegram{
+      &:before{
+        @include sprite($telegram);
+      }
+    }
+    &--vk{
+      &:before{
+        @include sprite($vk);
+      }
+    }
+    &--viber{
+      &:before{
+        @include sprite($viber);
+      }
+    }
+    &--whatsapp{
+      &:before{
+        @include sprite($whatsapp);
+      }
+    }
   }
 }
 

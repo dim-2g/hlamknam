@@ -61,7 +61,7 @@ $(function() {
     //инициализация слайдера машин на странице О компании
     initCarSlider();
     //скрываем часть товаров под кнопку Показать все
-    //setCountProducts();
+    setCountProducts();
     //инициализация слайдера Виды узлов
     //initNodesSlider();
     //инициализация всех табов
@@ -70,7 +70,7 @@ $(function() {
     //показ всех товаров в каталоге при клике на "Показать еще"
     $('body').on('click', '.more-js', function(e) {
         e.preventDefault();
-        var box = $(this).parents('.xtab').find('.hidden').removeClass('hidden');
+        var box = $(this).parents('.services').find('.hidden').removeClass('hidden');
         $(this).addClass('hidden');
     });
 
@@ -91,6 +91,11 @@ $(function() {
     });
 
     $('select.styler').styler();
+    $('select.styler-popup-form').styler({
+        selectSmartPositioning: false,
+        singleSelectzIndex: '999',
+    });
+    $('.checkbox-styler').styler();
 
     $('body').on('click', '[data-step-index]', function(e) {
         e.preventDefault();
@@ -100,7 +105,37 @@ $(function() {
         console.log(index);
     });
 
+    $('body').on('click', '[data-quiz-nav]', function(e) {
+        e.preventDefault();
+        var action = $(this).attr('data-quiz-nav');
+        var quizContainer = $(this).parents('[data-quiz-step]');
+        var currentStep = parseInt(quizContainer.attr('data-quiz-step'));
+        if (action == 'next') {
+            currentStep++;
+        } else {
+            currentStep--;
+        }
+        quizContainer.attr('data-quiz-step', currentStep);
+        setQuizNav(quizContainer, currentStep);
+        setQuizTab(quizContainer, currentStep);
+    });
+
 });
+
+var setQuizNav = function(quizContainer, currentStep) {
+    var navs = quizContainer.find('[data-quiz-index]');
+    navs.removeClass('active');
+    navs.each(function() {
+        if ($(this).attr('data-quiz-index') < currentStep) {
+            $(this).addClass('active');
+        }
+    });
+};
+
+var setQuizTab = function(quizContainer, currentStep) {
+    quizContainer.find('[data-quiz-tab]').removeClass('active');
+    quizContainer.find('[data-quiz-tab="'+currentStep+'"]').addClass('active');
+};
 
 var initXtab = function() {
     setTimeout(function() {
@@ -108,12 +143,6 @@ var initXtab = function() {
             $(this).addClass('xtab-initialized');
         });
     }, 100);
-};
-
-var setActiveSlideNodes = function() {
-    $('.nodes-slider-js .slick-active').removeClass('slide-opacity');
-    $('.nodes-slider-js .slick-active:first').addClass('slide-opacity');
-    $('.nodes-slider-js .slick-active:last').addClass('slide-opacity');
 };
 
 var isInitMainSlider = false;
@@ -133,7 +162,6 @@ var initMainSlider = function() {
     });
 };
 
-var isInitTestimonailsSlider = false;
 var initActionSlider = function() {
     var selector = '.action-slider';
     $(selector).owlCarousel({
@@ -224,73 +252,10 @@ var initPriceSlider = function() {
     });
 };
 
-var isInitNodesSlider = false;
-var initNodesSlider = function() {
-    var selector = '.nodes-slider-js';
-    if (!isInitNodesSlider) {
-        $(selector).slick({
-            'autoplay': false,
-            'arrows': false,
-            'dots': false,
-            'slidesToShow': 6,
-            'slidesToScroll': 1,
-            'initialSlide': 0,
-            'infinite': true,
-            'adaptiveHeight': true,
-            'responsive': [
-                {
-                    breakpoint: 1700,
-                    settings: {
-                        vertical: false,
-                        dots: false,
-                        slidesToShow: 4
-                    }
-                },
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        vertical: false,
-                        dots: false,
-                        slidesToShow:3
-                    }
-                },
-                {
-                    breakpoint: 875,
-                    settings: {
-                        vertical: false,
-                        dots: false,
-                        slidesToShow:2
-                    }
-                },
-                {
-                    breakpoint: 750,
-                    settings: {
-                        vertical: false,
-                        dots: false,
-                        arrows: false,
-                        slidesToShow: 3
-                    }
-                },
-                {
-                    breakpoint: 550,
-                    settings: {
-                        arrows: false,
-                        vertical: false,
-                        dots: false,
-                        slidesToShow: 2
-                    }
-                }
-            ]
-        });
-        isInitNodesSlider = true;
-    }
-    setActiveSlideNodes();
-};
-
 var setCountProducts = function() {
     var width = $(window).width();
-    var selector = '.catalog-box__grid';
-    var selectorItem = '.catalog-box__item';
+    var selector = '.services__grid';
+    var selectorItem = '.services__item';
     var limit = 8;
     if (width > 500) {
         //отображаем 8 товаров и кнопку Показать больше
@@ -334,7 +299,7 @@ $(window).resize(function(){
 var resizedw = function(){
     //var width = $(window).width();
     //console.log('Перестроить слайдеры');
-    //setCountProducts();
+    setCountProducts();
     //initTestimonialsSlider();
     //initNodesSlider();
     //hideSlideMenu();
