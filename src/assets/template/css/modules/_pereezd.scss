@@ -373,6 +373,7 @@
     box-sizing: border-box;
     max-width: 100%;
     white-space: normal;
+    align-items: center;
     @media ($bp-larger-than-iphone6) {
       font-size: 18px;
     }
