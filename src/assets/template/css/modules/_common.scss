@@ -177,21 +177,17 @@ input[type="text"]:focus {
     }
   }
 }
+.fixed-header{
+  position: relative;
+  z-index: 20;
+}
 body{
   &.fix-header{
-    padding-top: 88px;
-    @media ($bp-larger-than-phablet) {
-      padding-top: 133px;
-    }
-    @media ($bp-larger-than-tablet) {
-      padding-top: 170px;
-    }
     .fixed-header{
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 20;
     }
   }
 }
@@ -424,13 +420,13 @@ body{
       position: absolute;
       left: -38px;
       top: 100%;
-      width: 234px;
+      width: 245px;
       background: #FFFFFF;
       border: 1px solid #C4C4C4;
       box-sizing: border-box;
       list-style-type: none;
       margin: 0;
-      padding: 20px 0 9px 20px;
+      padding: 20px 0 15px 20px;
       z-index: -1000;
       transition: $cubic;
       transform: translateY(15px);
@@ -451,7 +447,7 @@ body{
       > li {
         line-height: 115%;
         & > a{
-          padding-right: 5px;
+          padding-right: 10px;
           position: relative;
           display: flex;
           text-align: left;
@@ -464,7 +460,7 @@ body{
               content: "";
               display: inline-block;
               position: absolute;
-              right: 5px;
+              right: 8px;
               top: 1px;
               @include sprite($has-child-submenu);
               margin-top: 0;
@@ -578,7 +574,7 @@ body{
     justify-content: space-between;
     align-items: center;
     min-height: 111px;
-    height: 1px;
+    height: 1%;
     &--desktop{
       display: none;
       @media ($bp-larger-than-tablet) {
@@ -591,7 +587,6 @@ body{
       margin-left: auto;
       margin-right: auto;
       min-height: auto;
-      height: 1px;
       padding-top: 16px;
       padding-bottom: 5px;
       @media ($bp-larger-than-tablet) {
@@ -637,6 +632,9 @@ body{
     text-align: right;
     color: #FFFFFF;
     text-decoration: none;
+    &:hover{
+      color: #ef5c2e;
+    }
   }
 }
 .footer-phone, .footer-phone a{
@@ -657,6 +655,7 @@ body{
   }
   &:hover{
     text-decoration: none;
+    color: #ef5c2e;
   }
 }
 .footer-worktime{
@@ -692,6 +691,7 @@ body{
   }
   &:hover{
     text-decoration: none;
+    color: #ef5c2e;
   }
   &__hint{
     font-style: normal;
@@ -1057,7 +1057,7 @@ body{
       height: 45px;
     }
     &:hover{
-      background-color: $orange;
+      background-color: #ef5c2e;
     }
   }
   &__bottom{
@@ -1120,7 +1120,7 @@ body{
     justify-content: flex-end;
   }
   &__icon{
-    border: 2px solid #C4C4C4;
+    //border: 2px solid #C4C4C4;
     width: 40px;
     height: 40px;
     flex-shrink: 0;
@@ -1155,6 +1155,29 @@ body{
         @include sprite($whatsapp);
       }
     }
+    svg{
+      width: 40px;
+      height: 40px;
+      fill: transparent;
+      .svg-fill {
+        transition: $anim;
+        fill: #C4C4C4;
+      }
+      .svg-stroke {
+        transition: $anim;
+        stroke: #C4C4C4;
+      }
+    }
+    &:hover{
+      svg{
+        .svg-fill {
+          fill: #ef5c2e;
+        }
+        .svg-stroke {
+          stroke: #ef5c2e;
+        }
+      }
+    }
   }
 }
 
@@ -1171,6 +1194,10 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 20px;
+    width: 100%;
+    @media ($bp-larger-than-phablet) {
+      width: auto;
+    }
     &.hidden{
       display: none;
     }
@@ -1186,9 +1213,12 @@ body{
 
 .service-card{
   position: relative;
-  width: 270px;
+  width: 100%;
   height: 270px;
   overflow: hidden;
+  @media ($bp-larger-than-phablet) {
+    width: 270px;
+  }
   &:hover{
     .service-card__panel{
       @media ($bp-larger-than-tablet) {
@@ -1200,6 +1230,14 @@ body{
         opacity: 0;
       }
     }
+  }
+  &__image{
+    background-position: top center;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    height: 100%;
+    width: 100%;
   }
   &__header{
     position: absolute;
@@ -1378,6 +1416,7 @@ body{
   }
   &__info{
     padding: 0;
+    width: 100%;
     @media ($bp-larger-than-tablet) {
       padding: 0 20px 0 6px;
     }
@@ -1432,7 +1471,14 @@ body{
   padding: 33px 0 37px;
   background: #F78764;
 }
+.owl-nav *{
+  outline: none;
+}
+.owl-dots *{
+  outline: none;
+}
 .action-slider{
+
   .owl-nav {
     height: 0;
     position: absolute;
@@ -1517,6 +1563,7 @@ body{
     }
   }
   &__card{
+    transition: $anim;
     position: relative;
     color: #2C2C2C;
     text-decoration: none;
@@ -1549,7 +1596,7 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    @media ($bp-larger-than-tablet) {
+    @media ($bp-larger-than-desktop) {
       flex-direction: row;
     }
   }
@@ -1617,6 +1664,12 @@ body{
 .about-faq{
   max-width: 660px;
   width: 100%;
+  @media ($bp-larger-than-phablet) {
+    margin-top: 32px;
+  }
+  @media ($bp-larger-than-desktop) {
+    margin-top: 0;
+  }
   &__grid{
 
   }
@@ -1831,7 +1884,7 @@ body{
 
     @media ($bp-larger-than-tablet) {
       border: 1px solid #C4C4C4;
-      padding: 26px 32px;
+      padding: 43px 32px 26px 32px;
       height: 500px;
     }
   }
@@ -1839,6 +1892,12 @@ body{
     margin-bottom: 12px;
     @media ($bp-larger-than-phablet) {
       margin-bottom: 23px;
+    }
+  }
+  &__button{
+    margin-bottom: 12px;
+    @media ($bp-larger-than-phablet) {
+      margin-bottom: 12px;
     }
   }
   input[type="text"]{
@@ -1902,7 +1961,7 @@ body{
   }
   &__police{
     font-weight: normal;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 12px;
     text-align: center;
     color: #C4C4C4;

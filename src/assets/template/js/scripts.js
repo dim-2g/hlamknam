@@ -1,12 +1,16 @@
+var fixedHeaderContainer = '.fixed-header-box';
+var fixedHeader = '.fixed-header';
+
 $(function() {
-    //маска телеофнов
+    //маска телефонов
     $('[data-mask]').each(function() {
         input = $(this);
         mask = input.attr('data-mask');
         input.inputmask({"mask": mask});
     });
     //сворачивание мобильного меню
-    $('.toggle-menu').on('click', function () {
+    $('.toggle-menu').on('click', function (e) {
+        e.preventDefault();
         if ($('body').hasClass('show-slide-menu')) {
             $('.mobile-menu').slideUp(300, function() {
                 $('.mobile-menu').stop(true, true);
@@ -18,9 +22,9 @@ $(function() {
             });
             $('body').addClass('show-slide-menu')
         }
-
     });
 
+    //сворачивание и разворачивание подменю для мобильного
     $('body').on('click', '.mobile-menu__toggle', function(e) {
         e.preventDefault();
         $(this).closest('li').toggleClass('open');
@@ -62,10 +66,9 @@ $(function() {
     initCarSlider();
     //скрываем часть товаров под кнопку Показать все
     setCountProducts();
-    //инициализация слайдера Виды узлов
-    //initNodesSlider();
     //инициализация всех табов
     initXtab();
+    setHeaderHeight();
 
     //показ всех товаров в каталоге при клике на "Показать еще"
     $('body').on('click', '.more-js', function(e) {
@@ -76,17 +79,13 @@ $(function() {
 
     $('body').on('click', '.about-faq__item', function() {
         var item = $(this);
-        if ($(this).hasClass('active')) {
-            $(this).find('.about-faq__answer').slideUp(100, function() {
-                console.log('close');
-                item.removeClass('active');
-            });
-        } else {
-            $(this).find('.about-faq__answer').slideDown(100, function() {
-                console.log('open');
-                item.addClass('active');
-            });
-        }
+        $('.about-faq__item.active').find('.about-faq__answer').slideUp(400, function() {
+            $(this).closest('.about-faq__item').removeClass('active');
+        });
+        $(this).find('.about-faq__answer').slideDown(400, function() {
+            item.addClass('active');
+        });
+
         //$(this).toggleClass('active');
     });
 
@@ -290,6 +289,21 @@ var hideSlideMenu = function() {
     $('body').removeClass('show-slide-menu');
 };
 
+var setHeaderHeight = function() {
+  var headerHeight = $(fixedHeader).height();
+  $(fixedHeaderContainer).css({'height': headerHeight});
+};
+
+var setFixedHeader = function() {
+    var topFixedStart = parseInt($('.topline').offset().top) + parseInt($('.topline').height());
+    var scroll = $(window).scrollTop();
+    if (scroll > topFixedStart) {
+        $('body').addClass('fix-header');
+    } else {
+        $('body').removeClass('fix-header');
+    }
+}
+
 var doit;
 $(window).resize(function(){
     clearTimeout(doit);
@@ -297,12 +311,13 @@ $(window).resize(function(){
 });
 
 var resizedw = function(){
-    //var width = $(window).width();
-    //console.log('Перестроить слайдеры');
     setCountProducts();
-    //initTestimonialsSlider();
-    //initNodesSlider();
-    //hideSlideMenu();
+    setHeaderHeight();
+    setFixedHeader();
     $('body').removeClass('show-slide-menu')
     $('.mobile-menu').slideUp();
-}
+};
+
+$(document).scroll(function(){
+    setFixedHeader();
+});

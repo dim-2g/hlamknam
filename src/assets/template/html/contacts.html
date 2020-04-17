@@ -59,8 +59,8 @@
             </div>
         </div>
 
-        <div class="contacts__map">
-            <img src="/assets/template/images/map.jpg" alt="" />
+        <div class="contacts__map" id="map">
+
         </div>
 
     </div>
@@ -69,6 +69,18 @@
 
 //= include/feedback.html
 //= include/footer.html
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script>
+    var mapData = [{
+        id: 'map',
+        coords: [59.841220, 30.347731],
+        header: 'Санкт-Петербург, ул. Пулковская, д. 1',
+        center: [59.841220, 30.347731],
+        zoom: 16,
+    }];
+</script>
+<script src="/assets/template/js/map-contacts.js?v=1"></script>
 
 <!-- @if NODE_ENV='development' -->
 //= include/mediahelp.html

@@ -68,17 +68,18 @@ var path = {
 	dev: {
 		sprites: 'src/assets/template/css/sprites/',
 		spritescustom: 'src/assets/template/css/sprites/',
+		svg: 'src/assets/template/css/sprites/',
 	},
     //указываем после измененя каких файлов нужно действовать
     watch: { 
-        html: 'src/assets/template/html/*.html',
+        html: 'src/assets/template/html/**/*.html',
         js: 'src/js/**/*.js',
         style: 'src/assets/template/css/**/*.scss',
         css: 'src/css/**/*.css',
         img: 'src/img/**/*.*',
-        svg: 'src/img/sprite/**/*.svg',
         fonts: 'src/fonts/**/*.*',
-		sprites: 'src/assets/template/sprites/*.*'
+		sprites: 'src/assets/template/sprites/*.*',
+		svg: 'src/assets/template/spritesvg/*.*'
     },
     clean: './build'
 };
@@ -152,7 +153,8 @@ function copySprite(){
 }
 
 function sprite(){
-    return gulp.src('src/img/sprite/**/*.svg')
+	console.log(path.dev.svg);
+    return gulp.src(path.watch.svg)
         .pipe(svgmin({
             js2svg: {
                 pretty: true
@@ -178,7 +180,7 @@ function sprite(){
             }
         }))
         
-        .pipe(gulp.dest('src/img'))
+        .pipe(gulp.dest(path.dev.svg))
         
 }
 
@@ -221,7 +223,7 @@ function scss(){
 		.pipe(sourcemaps.init())
 		.pipe(sass())
 		.pipe(prefixer({
-			cascade: false
+			cascade: true
 		}))
 		//.pipe(concat("main.css"))
 		.pipe(sourcemaps.write())
@@ -323,5 +325,5 @@ gulp.task('build', gulp.series(
 	'webserver:prod'
 ));
 
-gulp.task('dev', gulp.series(spritePng, scss, html_dev, watch_dev));
+gulp.task('dev', gulp.series(spritePng, sprite, scss, html_dev, watch_dev));
 

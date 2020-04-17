@@ -61,6 +61,10 @@
     margin-top: 39px;
     margin-bottom: 40px;
     position: relative;
+    display: none;
+    @media ($bp-larger-than-tablet) {
+      display: block;
+    }
     &:before{
       display: inline-block;
       content: "";
@@ -607,7 +611,6 @@
     justify-content: center;
   }
   &__icon{
-    border: 2px solid #C4C4C4;
     width: 40px;
     height: 40px;
     flex-shrink: 0;
@@ -622,24 +625,27 @@
       display: inline-block;
       content: "";
     }
-    &--telegram{
-      &:before{
-        @include sprite($telegram);
+    svg{
+      width: 40px;
+      height: 40px;
+      fill: transparent;
+      .svg-fill {
+        transition: $anim;
+        fill: #C4C4C4;
+      }
+      .svg-stroke {
+        transition: $anim;
+        stroke: #C4C4C4;
       }
     }
-    &--vk{
-      &:before{
-        @include sprite($vk);
-      }
-    }
-    &--viber{
-      &:before{
-        @include sprite($viber);
-      }
-    }
-    &--whatsapp{
-      &:before{
-        @include sprite($whatsapp);
+    &:hover{
+      svg{
+        .svg-fill {
+          fill: #ef5c2e;
+        }
+        .svg-stroke {
+          stroke: #ef5c2e;
+        }
       }
     }
   }

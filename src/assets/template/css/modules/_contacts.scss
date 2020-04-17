@@ -26,6 +26,7 @@
     margin-bottom: 20px;
   }
   &__map{
+    height: 400px;
     margin-bottom: 30px;
     & > img {
       max-width: 100%;
@@ -72,3 +73,64 @@
     }
   }
 }
+
+
+.popover {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  z-index: 1010;
+  border-radius: 5px;
+  &__grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    img {
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      display: none;
+      @media ($bp-larger-than-phablet) {
+        display: inline-block;
+      }
+    }
+  }
+  &__address {
+    margin-bottom: 2px;
+    display: block;
+  }
+
+}
+.popover .close {
+  position: absolute;
+  right: 5px;
+  top: 1px;
+  text-decoration: none;
+  color: #333;
+  display: none;
+}
+
+.popover-inner {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+@media (min-width: 360px) {
+  .popover-inner {
+    font-size: 12px;
+  }
+}
+.popover-inner > ymaps {
+  display: inline-block !important;
+  width: 100% !important;
+  padding: 3px 7px 3px 10px;
+  white-space: nowrap;
+}
+
