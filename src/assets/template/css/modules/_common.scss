@@ -286,6 +286,13 @@ body{
     line-height: 23px;
   }
 }
+.header-phone a{
+  transition: $anim;
+  &:hover{
+    color: #ef5c2e;
+  }
+}
+
 .header-worktime{
   text-align: center;
   font-style: normal;
@@ -307,6 +314,12 @@ body{
     font-size: 14px;
     line-height: 16px;
     text-align: center;
+  }
+}
+.header-email a{
+  transition: $anim;
+  &:hover{
+    color: #ef5c2e;
   }
 }
 .btn{
@@ -1436,7 +1449,18 @@ body{
     &:before{
       content: "";
       display: inline-block;
-      @include sprite($slide-prev)
+      width: 16px;
+      height: 16px;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      transform: rotate(-225deg);
+      transition: $anim;
+      opacity: 0.7;
+    }
+    &:hover{
+      &:before{
+        opacity: 1;
+      }
     }
   }
   .owl-next{
@@ -1449,7 +1473,18 @@ body{
     &:before{
       content: "";
       display: inline-block;
-      @include sprite($slide-next)
+      width: 16px;
+      height: 16px;
+      border-right: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      transform: rotate(-45deg);
+      transition: $anim;
+      opacity: 0.7;
+    }
+    &:hover{
+      &:before{
+        opacity: 1;
+      }
     }
   }
   .owl-dots{

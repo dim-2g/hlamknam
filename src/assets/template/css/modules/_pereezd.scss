@@ -99,6 +99,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
+      transition: $anim;
     }
     &.active{
       &:before{
@@ -476,7 +477,17 @@
     &:before{
       content: "";
       display: inline-block;
-      @include sprite($prev-price-slider)
+      width: 16px;
+      height: 16px;
+      border-right: 1px solid #C4C4C4;
+      border-bottom: 1px solid #C4C4C4;
+      transform: rotate(-225deg);
+      transition: $anim;
+    }
+    &:hover{
+      &:before{
+        border-color: #ef5c2e;
+      }
     }
   }
   .owl-next{
@@ -489,7 +500,17 @@
     &:before{
       content: "";
       display: inline-block;
-      @include sprite($next-price-slider)
+      width: 16px;
+      height: 16px;
+      border-right: 1px solid #C4C4C4;
+      border-bottom: 1px solid #C4C4C4;
+      transform: rotate(-45deg);
+      transition: $anim;
+    }
+    &:hover{
+      &:before{
+        border-color: #ef5c2e;
+      }
     }
   }
 }
