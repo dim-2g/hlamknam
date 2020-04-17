@@ -400,6 +400,7 @@ body{
           //display: block;
           visibility: visible;
           opacity: 1;
+          transform: translateY(0);
         }
       }
     }
@@ -419,6 +420,7 @@ body{
       padding: 20px 0 9px 20px;
       z-index: -1000;
       transition: $cubic;
+      transform: translateY(15px);
       li{
         margin-bottom: 6px;
       }
