@@ -436,6 +436,7 @@ body{
         }
       }
       > li {
+        line-height: 115%;
         & > a{
           padding-right: 5px;
           position: relative;
@@ -445,15 +446,18 @@ body{
         }
         &.has-child{
           & > a{
+            line-height: 115%;
+            &:after{
+              content: "";
+              display: inline-block;
+              position: absolute;
+              right: 5px;
+              top: 1px;
+              @include sprite($has-child-submenu);
+              margin-top: 0;
+            }
             &:hover{
-              &:after{
-                content: "";
-                display: inline-block;
-                position: absolute;
-                right: 5px;
-                top: 6px;
-                @include sprite($has-child-submenu);
-              }
+
             }
           }
         }
